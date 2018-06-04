@@ -46,40 +46,35 @@ export default {
     navigationBarTextStyle: 'white',
     backgroundColor: '#F4F4F4'
   },
-  data () {
+  data() {
     return {
       portraitUrl: require('#/images/portrait_bg.png')
     }
   },
-  methods: {
-
-  }
+  methods: {}
 }
-
 </script>
 
 <style lang="less">
-
 .nav_bar {
-    background: @theme-color;
-    .nav_title {
-        color: #fff;
-    }
+  background: @theme-color;
+  .nav_title {
+    color: #fff;
+  }
 }
 
 .header_top {
-    background: @theme-color;
-    .head_portrait {
-      border-radius: 50%; 
-    }
-    .login {
-      color: #fff;
-      font-size: 18px;
-    }
-    .login_after {
-        color: #fff;
-        font-size: 12px;
-    }
+  background: @theme-color;
+  .head_portrait {
+    border-radius: 50%;
+  }
+  .login {
+    color: #fff;
+    font-size: 18px;
+  }
+  .login_after {
+    color: #fff;
+    font-size: 12px;
+  }
 }
-
 </style>
