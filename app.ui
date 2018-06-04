@@ -4,7 +4,9 @@ export default {
     "pages": [
       "pages/index",
       "pages/detail",
-      "pages/products"
+      "pages/search",
+      "pages/products",
+      "pages/rich"
     ],
     "theme": {
       "theme-color": "#3399ff"

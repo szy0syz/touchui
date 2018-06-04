@@ -1,7 +1,16 @@
 <template>
   <ui-page>
-    <ui-view class="content" style="{{{ height:contentHeight+'px' }}}">
-      Hello UILeader!
+    <ui-view>
+      <ui-row>
+        <ui-col>
+          <p>1</p>
+        </ui-col>
+      </ui-row>
+      <ui-row>
+        <ui-col>
+          <p>2</p>
+        </ui-col>
+      </ui-row>
     </ui-view>
   </ui-page>
 </template>
@@ -29,6 +38,10 @@ export default {
 .content{
   .mix-flex-center();
   font-size: 24px;
+}
+
+p {
+  border: 1px solid #000;
 }
 
 </style>
