@@ -5,7 +5,8 @@ export default {
       "pages/index",
       "pages/detail",
       "pages/search",
-      "pages/product"
+      "pages/product",
+      "pages/accordion"
     ],
     "theme": {
       "theme-color": "#3399ff"

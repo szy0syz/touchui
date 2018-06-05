@@ -7,6 +7,10 @@
         <ui-button type="primary" bindtap="sliderShow">创建滑动条控件</ui-button>
         <ui-button type="primary" bindtap="navHandle">{{ buttonText }}</ui-button>
       </ui-view>
+      <ui-view class="animated">
+        <ui-icon name="praiseago"></ui-icon>
+        <ui-text>176</ui-text>
+      </ui-view>
   </ui-page>
 </template>
 
@@ -15,7 +19,9 @@ export default {
   config: {
     navigationBarTitleText: '首页',
     backgroundColor: '#F4F4F4',
-    navigationBarTextStyle: 'black'
+    navigationBarTextStyle: 'black',
+    showSideBar: true,
+    touchSlideMenu: true
   },
   data () {
     return {
@@ -25,7 +31,7 @@ export default {
   },
   methods: {
     sliderShow() {
-      this.isShow=true
+      this.isShow= !this.isShow
     },
     navHandle () {
       ui.navigateTo({

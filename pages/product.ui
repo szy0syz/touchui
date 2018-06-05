@@ -1,5 +1,6 @@
 <template>
   <ui-page>
+    
     <ui-nav-bar slot="nav-bar"  class="nav_bar">
       <ui-row height="46">
         <ui-col vertical-align="middle" align="center" width="50">
@@ -13,6 +14,7 @@
         </ui-col>
       </ui-row>
     </ui-nav-bar>
+
     <ui-view class="container">
       <ui-row>
         <ui-col>
@@ -44,13 +46,32 @@
         </ui-col>
         
         <ui-col>
-          <ui-list-view data="{{ tabContentData }}"> 
+          <!-- <ui-list-view data="{{ tabContentData }}"> 
             <template scope="props">
               <ui-list-view-item bindtap="navHandle">
                 <ui-text>{{props.item.name}}</ui-text>
               </ui-list-view-item>
             </template>
-          </ui-list-view>
+          </ui-list-view> -->
+          <ui-accordion header-height="50" bindchange="handleSlide" ui:for="{{ tabContentData }}">
+            <ui-view slot="header">
+              <ui-row height="50" border-bottom class="title">
+                <ui-col vertical-align="middle" align="left" space-left="10">
+                  {{ item.name }}
+                </ui-col>
+                <ui-col vertical-align="middle" align="center" width="60">
+                  {{ item.count }}项
+                </ui-col>
+                <ui-col vertical-align="middle" align="center" width="30"></ui-col>
+              </ui-row>
+            </ui-view>
+            <ui-view slot="content">
+              <ui-row height="40" ui:for="{{ item.list }}" ui:for-item="item2" class='content'>
+                <ui-col span="10" vertical-align="middle" align="left" space-left="18">{{ item2.name }}</ui-col>
+                <ui-col span="2" vertical-align="middle" align="left" class="animated" bindtap="handleAddProduct($event)"> + </ui-col>
+              </ui-row>
+            </ui-view>
+          </ui-accordion>
         </ui-col>
       </ui-row>
     </ui-view>
@@ -61,7 +82,9 @@
 export default {
   config: {
     navigationStyle: 'custom',
-    navigationBarTextStyle: 'white'
+    navigationBarTextStyle: 'white',
+    showSideBar: true,
+    touchSlideMenu: true
   },
   data() {
     return {
@@ -69,65 +92,257 @@ export default {
         [
           {
             name: '百树得',
-            helpCode: 'bsd'
+            helpCode: 'bsd',
+            count: 4,
+            list: [
+              {
+                name: '百树得 100g/瓶 乳液 德国拜耳'
+              },
+              {
+                name: '百树得2 40g/瓶 乳液 德国拜耳'
+              },
+              {
+                name: '百树得3 20g/瓶 乳液 德国拜耳'
+              }
+            ]
           },
           {
             name: '氧乐果',
-            helpCode: 'ylg'
+            helpCode: 'ylg',
+            count: 5,
+            list: [
+              {
+                name: '百树得 100g/瓶 乳液 德国拜耳'
+              },
+              {
+                name: '百树得2 40g/瓶 乳液 德国拜耳'
+              },
+              {
+                name: '百树得3 20g/瓶 乳液 德国拜耳'
+              }
+            ]
           },
           {
             name: '敌杀死',
-            helpCode: 'dss'
+            helpCode: 'dss',
+            count: 2,
+            list: [
+              {
+                name: '百树得 100g/瓶 乳液 德国拜耳'
+              },
+              {
+                name: '百树得2 40g/瓶 乳液 德国拜耳'
+              },
+              {
+                name: '百树得3 20g/瓶 乳液 德国拜耳'
+              }
+            ]
           },
           {
             name: '敌敌畏',
-            helpCode: 'ddw'
+            helpCode: 'ddw',
+            count: 9,
+            list: [
+              {
+                name: '百树得 100g/瓶 乳液 德国拜耳'
+              },
+              {
+                name: '百树得2 40g/瓶 乳液 德国拜耳'
+              },
+              {
+                name: '百树得3 20g/瓶 乳液 德国拜耳'
+              }
+            ]
           },
           {
             name: '毒丝本',
-            helpCode: 'dsb'
+            helpCode: 'dsb',
+            count: 7,
+            list: [
+              {
+                name: '百树得 100g/瓶 乳液 德国拜耳'
+              },
+              {
+                name: '百树得2 40g/瓶 乳液 德国拜耳'
+              },
+              {
+                name: '百树得3 20g/瓶 乳液 德国拜耳'
+              }
+            ]
           },
           {
             name: '巴丹',
-            helpCode: 'bd'
+            helpCode: 'bd',
+            count: 4,
+            list: [
+              {
+                name: '百树得 100g/瓶 乳液 德国拜耳'
+              },
+              {
+                name: '百树得2 40g/瓶 乳液 德国拜耳'
+              },
+              {
+                name: '百树得3 20g/瓶 乳液 德国拜耳'
+              }
+            ]
           }
         ],
         [
           {
-            name: '施保克'
+            name: '施保克',
+            count: 4,
+            list: [
+              {
+                name: '百树得 100g/瓶 乳液 德国拜耳'
+              },
+              {
+                name: '百树得2 40g/瓶 乳液 德国拜耳'
+              },
+              {
+                name: '百树得3 20g/瓶 乳液 德国拜耳'
+              }
+            ]
           },
           {
-            name: '富士一号'
+            name: '富士一号',
+            count: 4,
+            list: [
+              {
+                name: '百树得 100g/瓶 乳液 德国拜耳'
+              },
+              {
+                name: '百树得2 40g/瓶 乳液 德国拜耳'
+              },
+              {
+                name: '百树得3 20g/瓶 乳液 德国拜耳'
+              }
+            ]
           },
           {
-            name: '宝利安'
+            name: '宝利安',
+            count: 4,
+            list: [
+              {
+                name: '百树得 100g/瓶 乳液 德国拜耳'
+              },
+              {
+                name: '百树得2 40g/瓶 乳液 德国拜耳'
+              },
+              {
+                name: '百树得3 20g/瓶 乳液 德国拜耳'
+              }
+            ]
           },
           {
-            name: '菌毒清'
+            name: '菌毒清',
+            count: 4,
+            list: [
+              {
+                name: '百树得 100g/瓶 乳液 德国拜耳'
+              },
+              {
+                name: '百树得2 40g/瓶 乳液 德国拜耳'
+              },
+              {
+                name: '百树得3 20g/瓶 乳液 德国拜耳'
+              }
+            ]
           }
         ],
         [
           {
-            name: '克无踪'
+            name: '克无踪',
+            count: 4,
+            list: [
+              {
+                name: '百树得 100g/瓶 乳液 德国拜耳'
+              },
+              {
+                name: '百树得2 40g/瓶 乳液 德国拜耳'
+              },
+              {
+                name: '百树得3 20g/瓶 乳液 德国拜耳'
+              }
+            ]
           },
           {
-            name: '农达'
+            name: '农达',
+            count: 4,
+            list: [
+              {
+                name: '百树得 100g/瓶 乳液 德国拜耳'
+              },
+              {
+                name: '百树得2 40g/瓶 乳液 德国拜耳'
+              },
+              {
+                name: '百树得3 20g/瓶 乳液 德国拜耳'
+              }
+            ]
           }
         ],
         [
           {
-            name: '健壮素'
+            name: '健壮素',
+            count: 4,
+            list: [
+              {
+                name: '百树得 100g/瓶 乳液 德国拜耳'
+              },
+              {
+                name: '百树得2 40g/瓶 乳液 德国拜耳'
+              },
+              {
+                name: '百树得3 20g/瓶 乳液 德国拜耳'
+              }
+            ]
           },
           {
-            name: '稳生'
+            name: '稳生',
+            count: 4,
+            list: [
+              {
+                name: '百树得 100g/瓶 乳液 德国拜耳'
+              },
+              {
+                name: '百树得2 40g/瓶 乳液 德国拜耳'
+              },
+              {
+                name: '百树得3 20g/瓶 乳液 德国拜耳'
+              }
+            ]
           }
         ],
         [
           {
-            name: '硼酸'
+            name: '硼酸',
+            count: 4,
+            list: [
+              {
+                name: '百树得 100g/瓶 乳液 德国拜耳'
+              },
+              {
+                name: '百树得2 40g/瓶 乳液 德国拜耳'
+              },
+              {
+                name: '百树得3 20g/瓶 乳液 德国拜耳'
+              }
+            ]
           },
           {
-            name: '硫酸锌'
+            name: '硫酸锌',
+            count: 4,
+            list: [
+              {
+                name: '百树得 100g/瓶 乳液 德国拜耳'
+              },
+              {
+                name: '百树得2 40g/瓶 乳液 德国拜耳'
+              },
+              {
+                name: '百树得3 20g/瓶 乳液 德国拜耳'
+              }
+            ]
           }
         ]
       ],
@@ -171,6 +386,12 @@ export default {
       ui.navigateTo({
         url: '/pages/detail'
       })
+    },
+    handleAddProduct(e) {
+      console.log('++++++++++')
+    },
+    handleSlide(e) {
+      console.log(e)
     }
   }
 }
@@ -211,6 +432,7 @@ export default {
   }
 }
 
+/////szy
 .ui-list-view {
   padding: 0 2px;
 
@@ -224,11 +446,39 @@ export default {
     background: #f4f4f4;
   }
 }
+/////szy
 
 .nav_bar {
   background: @theme-color;
   .nav_title {
     color: #fff;
   }
+}
+
+.title{
+  width: 100%;
+  background-color: #fff;
+  font-size: 14px;
+  .state{
+    border: 1px solid #797979;;
+    width: 100%;
+    height: 30px;
+    .mix-flex-center();
+    color: #797979;
+    font-size: 12px;
+    &.abnormal{
+      border: 1px solid #F5AC29;;
+      color: #F5AC29;
+    }
+    &.normal{
+      border: 1px solid #2AA744;;
+      color: #2AA744;
+    }
+  }
+}
+.content{
+  background-color: #F6F6F6;
+  font-size: 14px;
+  border-bottom: 1px solid #fff;
 }
 </style>

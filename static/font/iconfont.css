@@ -23,3 +23,5 @@
 .icon-home:before {
     content: "\e62b";
 }
+
+.icon-add:before { content: "\e6b9"; }
