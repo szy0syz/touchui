@@ -7,7 +7,7 @@
         <ui-button type="primary" bindtap="sliderShow">创建滑动条控件</ui-button>
         <ui-button type="primary" bindtap="navHandle">{{ buttonText }}</ui-button>
       </ui-view>
-      <ui-view class="animated">
+      <ui-view bindtap="handleAni" class="animated {{ aniV }}">
         <ui-icon name="praiseago"></ui-icon>
         <ui-text>176</ui-text>
       </ui-view>
@@ -25,11 +25,20 @@ export default {
   },
   data () {
     return {
+      aniV: '', 
       buttonText: '界面跳转',
       isShow:false
     }
   },
   methods: {
+    handleAni() {
+      console.log('bounceIn')
+      this.aniV = 'bounceIn'
+      const that = this
+      setTimeout(() => {
+        that.aniV = ''
+      }, 700)
+    },
     sliderShow() {
       this.isShow= !this.isShow
     },

@@ -39,6 +39,23 @@ export default {
   },
   data () {
     return {
+      myList: [
+        {
+          name: '百树得',
+          qty: 13,
+          model: '100g/袋'
+        },
+        {
+          name: '敌敌畏',
+          qty: 8,
+          model: '200ml/瓶'
+        },
+        {
+          name: '银法利',
+          qty: 4,
+          model: '90ml/瓶'
+        }
+      ],
       //全局变量
       globalData: {
       },
@@ -212,7 +229,15 @@ export default {
     <ui-slide-menu width="280" threshold="30" touch="{{ pageConfig.touchSlideMenu }}" ui:model="showSlideMenu">
 
     <ui-view slot="menu" class="menu">
-      <ui-text block style="color:#fff;margin:10px">侧滑菜单</ui-text>
+      <ui-text block style="color:#fff;margin:10px;font-size: 30px;">订单明细</ui-text>
+      <ui-list-view data="{{ myList }}"> 
+        <template scope="props">
+          <ui-list-view-item>
+            <ui-text block space="nbsp" style="color:#fff;margin: 4px 0 5px 10px;">品名: {{props.item.name}} &nbsp;&nbsp;  规格: {{props.item.model}}</ui-text>
+            <ui-text block space="nbsp" style="color:#fff;margin: 4px 0 4px 10px;">数量: {{props.item.qty}} &nbsp;&nbsp;单价: ￥{{props.item.qty}}.00 &nbsp;&nbsp;金额: ￥{{props.item.qty}}.00</ui-text>
+          </ui-list-view-item>
+        </template>
+      </ui-list-view>
     </ui-view>
 
     <ui-view slot="panel">

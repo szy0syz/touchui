@@ -1,21 +1,20 @@
 <template>
-  <ui-page>
-    
-    <ui-nav-bar slot="nav-bar"  class="nav_bar">
-      <ui-row height="46">
-        <ui-col vertical-align="middle" align="center" width="50">
-          <ui-icon name="ring" size="24" color="#fff"></ui-icon>
-        </ui-col>
-        <ui-col vertical-align="middle" align="center">
-          <ui-view class="nav_title">商品列表</ui-view>
-        </ui-col>
-        <ui-col vertical-align="middle" align="center" width="50">
-          <ui-icon name="setting" size="24" color="#fff"></ui-icon>
-        </ui-col>
-      </ui-row>
-    </ui-nav-bar>
+  <ui-page top="0">
 
     <ui-view class="container">
+      <ui-nav-bar slot="nav-bar" class="nav_bar">
+        <ui-row height="46">
+          <ui-col vertical-align="middle" align="center" width="50">
+            <ui-icon name="ring" size="24" color="#fff"></ui-icon>
+          </ui-col>
+          <ui-col vertical-align="middle" align="center">
+            <ui-view class="nav_title">商品列表</ui-view>
+          </ui-col>
+          <ui-col vertical-align="middle" align="center" width="50">
+            <ui-icon name="setting" size="24" color="#fff"></ui-icon>
+          </ui-col>
+        </ui-row>
+      </ui-nav-bar>
       <ui-row>
         <ui-col>
           <ui-row class="search_box" border-bottom height="46">
@@ -34,7 +33,6 @@
         </ui-col>
       </ui-row>
       <ui-row>
-
         <ui-col border-right span="3">
           <ui-v-tabs height="{{height}}"
           tab-style="{{tabStyle}}"
@@ -46,13 +44,6 @@
         </ui-col>
         
         <ui-col>
-          <!-- <ui-list-view data="{{ tabContentData }}"> 
-            <template scope="props">
-              <ui-list-view-item bindtap="navHandle">
-                <ui-text>{{props.item.name}}</ui-text>
-              </ui-list-view-item>
-            </template>
-          </ui-list-view> -->
           <ui-accordion header-height="50" bindchange="handleSlide" ui:for="{{ tabContentData }}">
             <ui-view slot="header">
               <ui-row height="50" border-bottom class="title">
@@ -68,13 +59,16 @@
             <ui-view slot="content">
               <ui-row height="40" ui:for="{{ item.list }}" ui:for-item="item2" class='content'>
                 <ui-col span="10" vertical-align="middle" align="left" space-left="18">{{ item2.name }}</ui-col>
-                <ui-col span="2" vertical-align="middle" align="left" class="animated" bindtap="handleAddProduct($event)"> + </ui-col>
+                <ui-col class="animated {{ aniV }}" span="2" vertical-align="middle" align="left" bindtap="handleAddProduct($event)"> 
+                  +
+                </ui-col>
               </ui-row>
             </ui-view>
           </ui-accordion>
         </ui-col>
       </ui-row>
     </ui-view>
+
   </ui-page>
 </template>
 
@@ -88,6 +82,7 @@ export default {
   },
   data() {
     return {
+      aniV: '',
       productList: [
         [
           {
@@ -96,7 +91,7 @@ export default {
             count: 4,
             list: [
               {
-                name: '百树得 100g/瓶 乳液 德国拜耳'
+                name: '百树得1 100g/瓶 乳液 德国拜耳'
               },
               {
                 name: '百树得2 40g/瓶 乳液 德国拜耳'
@@ -388,6 +383,8 @@ export default {
       })
     },
     handleAddProduct(e) {
+      console.log(e)
+      this.aniV = 'bounceInRight'
       console.log('++++++++++')
     },
     handleSlide(e) {
@@ -480,5 +477,9 @@ export default {
   background-color: #F6F6F6;
   font-size: 14px;
   border-bottom: 1px solid #fff;
+}
+
+.menu{
+  padding: 0 0 0 0;
 }
 </style>
