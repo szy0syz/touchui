@@ -25,7 +25,7 @@ export default {
       "list": [
         {
           "pagePath": "pages/index",
-          "iconName": "home",
+          "iconName": "home-page",
           "text": "首页"
         },
         {

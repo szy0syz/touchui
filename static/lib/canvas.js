@@ -51,6 +51,7 @@ CanvasRenderingContext2D.prototype.draw = function () {
 
 export default {
 	createCanvasContext (id) {
+		console.log(id)
 		var canvas = document.getElementById(id)
 		var ctx = canvas.getContext('2d')
 		return ctx;
