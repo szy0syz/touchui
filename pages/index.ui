@@ -44,9 +44,9 @@
       </ui-row>
       <ui-row class="class-item" height="100" space-bottom="20">
         <ui-col vertical-align="middle" align="center" class="left-item" space="20">
-          <ui-navigator url="/pages/home/pageList">
-            <ui-view class="title">商品列表</ui-view>
-            <ui-text class="small-title">展示所有商品属性</ui-text>
+          <ui-navigator url="/pages/dashborad">
+            <ui-view class="title">移动报表</ui-view>
+            <ui-text class="small-title">统计企业进销存各项数据</ui-text>
           </ui-navigator>
         </ui-col>
         <ui-col width="20"></ui-col>
