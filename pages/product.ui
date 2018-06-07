@@ -36,7 +36,7 @@
         <ui-col border-right span="3">
           <ui-v-tabs height="{{height}}"
           tab-style="{{tabStyle}}"
-          active-tab-style="{{activeTabStyle}}" height="{{ height }}" index="{{ current }}" bindchange="handleChange($event, 'current')">
+          active-tab-style="{{activeTabStyle}}" index="{{ current }}" bindchange="handleChange($event, 'current')">
             <ui-v-tab ui:for="{{ tabItems }}">
               {{ item.name }}
             </ui-v-tab>
@@ -57,9 +57,9 @@
               </ui-row>
             </ui-view>
             <ui-view slot="content">
-              <ui-row height="40" ui:for="{{ item.list }}" ui:for-item="item2" class='content'>
+              <ui-row  class="content animated {{ aniV }}" height="40" ui:for="{{ item.list }}" ui:for-item="item2">
                 <ui-col span="10" vertical-align="middle" align="left" space-left="18">{{ item2.name }}</ui-col>
-                <ui-col class="animated {{ aniV }}" span="2" vertical-align="middle" align="left" bindtap="handleAddProduct($event)"> 
+                <ui-col span="2" vertical-align="middle" align="left" bindtap="handleAddProduct($event)"> 
                   +
                 </ui-col>
               </ui-row>
@@ -384,8 +384,11 @@ export default {
     },
     handleAddProduct(e) {
       console.log(e)
-      this.aniV = 'bounceInRight'
-      console.log('++++++++++')
+      this.aniV = 'bounceOutLeft'
+      const that = this
+      setTimeout(() => {
+        that.aniV = ''
+      }, 1000)
     },
     handleSlide(e) {
       console.log(e)
