@@ -51,9 +51,9 @@
         </ui-col>
         <ui-col width="20"></ui-col>
         <ui-col vertical-align="middle" align="center" class="right-item" space="20">
-          <ui-navigator url="/pages/home/navBarList">
-            <ui-view class="title">即时库存</ui-view>
-            <ui-text class="small-title">即时掌握账面库存</ui-text>
+          <ui-navigator url="/pages/saleIssues">
+            <ui-view class="title">销售出库单</ui-view>
+            <ui-text class="small-title">开具出库单</ui-text>
           </ui-navigator>
         </ui-col>
       </ui-row>
