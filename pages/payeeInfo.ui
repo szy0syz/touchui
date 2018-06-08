@@ -14,7 +14,7 @@
             <ui-view>取消</ui-view>
           </ui-col>
         </ui-row>
-    </ui-nav-bar>
+      </ui-nav-bar>
 
       <ui-view class="content" style="{{{ height:contentHeight+'px' }}}">
         <ui-view class="payee_list" ui:for="{{ payeeList }}" ui:for-item="item" bindtap="choose(index)">
