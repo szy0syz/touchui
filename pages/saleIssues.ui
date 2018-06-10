@@ -25,7 +25,7 @@
           <ui-view>业务日期</ui-view>
         </ui-col>
         <ui-col vertical-align="middle" align="right" space="20" bindtap="radioCalendaropen">
-          <ui-view class="right_column">{{ dataValue }}</ui-view>
+          <ui-view class="right_column">{{ entity.bizDate }}</ui-view>
         </ui-col>
       </ui-row>
 
@@ -228,8 +228,8 @@
     <ui-popup ui:model="{{ radioCalendar }}">
       <ui-view>
         <ui-row height="{{headerHeight}}">
-          <ui-col align="left" vertical-align="middle" width="70" space-left="10" bindtap="handleSelect('radioCalendar')">
-              <!-- <ui-icon type="close" color="#e60012"></ui-icon> -->
+          <ui-col align="left" vertical-align="middle" width="70" space-left="10">
+              <ui-icon type="close" color="#e60012"></ui-icon>
           </ui-col>
           <ui-col align="center" vertical-align="middle">
             <ui-text>选择日期</ui-text>
@@ -237,14 +237,15 @@
           <ui-col align="center" vertical-align="middle" width="70">
           </ui-col>
         </ui-row>
-        <ui-v-calendar
+        <!-- <ui-v-calendar
         header-height="30"
         height="319"
-        show-today
+        ui:if="{{true}}"
         bindchange="selectedChange($event)"
         value="{{entity.bizDate}}"
         can-select-today="true"
-        ></ui-v-calendar>
+        ></ui-v-calendar> -->
+        <ui-v-calendar ui:if="{{showCalendar}}" bindchange="selectedChange($event)" value="'2018/06/08'"></ui-v-calendar>
       </ui-view>
     </ui-popup>
 
@@ -267,8 +268,9 @@ export default {
   },
   data() {
     return {
+      showCalendar: true,
       entity: {
-        bizDate: '2018-06-06',
+        bizDate: '2018/06/10',
         userName: '张三丰',
         userId: '10010',
         productList: [
@@ -490,33 +492,35 @@ export default {
     },
     // 付款日期
     radioinit(thisdate) {
-      this.dateobj.radioDate = thisdate
-      this.dateobj.radioDate = thisdate.split('/')
-      console.log(this.dateobj)
-      this.radioDate = this.dateobj.radioDate
-      this.radioYear = this.dateobj.radioDate[0]
-      this.radioMonth = this.dateobj.radioDate[1]
-      this.radioDay = this.dateobj.radioDate[2]
-      this.dataValue =
-        this.radioYear + '-' + this.radioMonth + '-' + this.radioDay
+      console.log(thisdate)
+      this.entity.bizDate = thisdate
+      // this.dateobj.radioDate = thisdate
+      // this.dateobj.radioDate = thisdate.split('/')
+      // console.log(this.dateobj)
+      // this.radioDate = this.dateobj.radioDate
+      // this.radioYear = this.dateobj.radioDate[0]
+      // this.radioMonth = this.dateobj.radioDate[1]
+      // this.radioDay = this.dateobj.radioDate[2]
+      // this.dataValue =
+      //   this.radioYear + '-' + this.radioMonth + '-' + this.radioDay
 
-      // 第一次进入默认2个工作日
-      if (this.isFrist) {
-        let today = new Date()
-        let year = today.getFullYear() + ''
-        let month = getDoubleNumber(today.getMonth() + 1)
-        let day = getDoubleNumber(today.getDate() + 2) // 按需求默认两个工作日
+      // // 第一次进入默认2个工作日
+      // if (this.isFrist) {
+      //   let today = new Date()
+      //   let year = today.getFullYear() + ''
+      //   let month = getDoubleNumber(today.getMonth() + 1)
+      //   let day = getDoubleNumber(today.getDate() + 2) // 按需求默认两个工作日
 
-        this.dataValue = year + '-' + month + '-' + day
-        this.isFrist = false
-      }
+      //   this.dataValue = year + '-' + month + '-' + day
+      //   this.isFrist = false
+      // }
     },
     // 日期选择
     selectedChange(e) {
       this.radioinit(e)
       setTimeout(() => {
         this.radioCalendar = false
-      }, 300)
+      }, 200)
     },
     radioCalendaropen() {
       this.radioCalendar = true
@@ -539,11 +543,6 @@ export default {
       console.log('val change', val)
       // console.log(this.siteValue)
     },
-    // 日期选择
-    dataChange(val) {
-      console.log('val change', val)
-      this.dataValue = val
-    },
     // 添加商品
     handleAddProduct() {
       import(`#/pages/product.ui`).then(content => {
@@ -563,9 +562,7 @@ export default {
                 qty: 1,
                 price: '28.99'
               })
-
-              console.log('~~~~', ui.set)
-              console.log(this.productList)
+              ui.showToast({icon: 'success' ,title: '新增商品：' + data.product.name})
             }
           }
         })

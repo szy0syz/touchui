@@ -1,0 +1,28 @@
+<!--mydate-->
+<template>
+  <ui-page>
+    <ui-popup ui:model="{{show}}">
+        <ui-v-calendar ui:if="{{show}}" value="{{date}}"></ui-v-calendar>
+    </ui-popup>
+  </ui-page>
+</template>
+
+<script>
+export default {
+  config: {
+    navigationBarTitleText: "mydate"
+  },
+  data() {
+    return {
+      show: true,
+      date: '2018/06/08'
+    }
+  },
+  methods: {},
+  mounted() {}
+}
+</script>
+
+<style lang="less">
+
+</style>
