@@ -34,7 +34,7 @@
           <ui-view>开单人</ui-view>
         </ui-col>
         <ui-col vertical-align="middle" align="right" space="20">
-          <ui-view class="right_column">{{ userName }}</ui-view>
+          <ui-view class="right_column">{{ entity.userName }}</ui-view>
         </ui-col>
       </ui-row>
 
@@ -133,7 +133,7 @@
         </ui-col>
       </ui-row>
 
-      <ui-row hidden="50" ui:for="{{ productList }}" class="product_list">
+      <ui-row hidden="50" ui:for="{{ entity.productList }}" class="product_list">
         <ui-col style="height:140px;border:1px solid #ddd;" vertical-align="middle" align="center" span="1">
           {{index + 1}}
         </ui-col>
@@ -238,13 +238,11 @@
           </ui-col>
         </ui-row>
         <ui-v-calendar
-        select-range-mode="{{false}}"
         header-height="30"
         height="319"
         show-today
-        show-month-range="{{ monthrange }}"
         bindchange="selectedChange($event)"
-        value="{{radioDate}}"
+        value="{{entity.bizDate}}"
         can-select-today="true"
         ></ui-v-calendar>
       </ui-view>
@@ -254,7 +252,7 @@
 </template>
 
 <script>
-const getDoubleNumber = function (num) {
+const getDoubleNumber = function(num) {
   return num < 10 ? '0' + num : '' + num
 }
 const sourceType = [['camera'], ['album'], ['camera', 'album']]
@@ -265,38 +263,40 @@ export default {
     backgroundColor: '#F6F6F6',
     disableIosGesture: true,
     navigationBarTextStyle: 'white',
-    "delay":true
+    delay: true
   },
-  data () {
+  data() {
     return {
+      entity: {
+        bizDate: '2018-06-06',
+        userName: '张三丰',
+        userId: '10010',
+        productList: [
+          {
+            name: '银法利',
+            model: '100g/瓶 德国拜耳',
+            number: '1001001',
+            qty: 12,
+            price: '34.50'
+          },
+          {
+            name: '安泰生',
+            model: '100ml/袋子 德国拜耳',
+            number: '1001002',
+            qty: 4,
+            price: '19.99'
+          }
+        ]
+      },
       showInputPrice: false,
-      currentPrice: '125',
       userName: '张三丰',
       userId: '10010',
-      productList: [
-        {
-          name: '银法利',
-          model: '100g/瓶 德国拜耳',
-          number: '1001001',
-          qty: 12,
-          price: '34.50'
-        },
-        {
-          name: '安泰生',
-          model: '100ml/袋子 德国拜耳',
-          number: '1001002',
-          qty: 4,
-          price: '19.99'
-        }
-      ],
-      projectList: ['请选择','赊销','现消','其它'],
-      projectIdList: ['',1,2,3],
+      projectList: ['请选择', '赊销', '现消', '其它'],
+      projectIdList: ['', 1, 2, 3],
       projectId: '',
       projectValue: 0,
 
-      recipientsList: [
-
-      ],
+      recipientsList: [],
       reasonValue: null,
       reasonId: '',
       reasonName1: '请选择',
@@ -306,94 +306,91 @@ export default {
         {
           name: '请选择',
           value: '1',
+          children: [{ name: '', value: '000' }]
+        },
+        {
+          id: 18,
+          parentId: 0,
+          name: '基础建设费',
+          value: '基础建设费',
+          lv: 0,
           children: [
-            { name: '', value: '000' }
-          ]
-        },
-        {
-          "id":18,
-          "parentId":0,
-          "name":"基础建设费",
-          "value":"基础建设费",
-          "lv":0,
-          "children":[
             {
-              "id":34,
-              "parentId":0,
-              "name":"办公固定电话费",
-              "value":"办公固定电话费",
-              "lv":0,
-              "children":[]
+              id: 34,
+              parentId: 0,
+              name: '办公固定电话费',
+              value: '办公固定电话费',
+              lv: 0,
+              children: []
             },
             {
-              "id":35,
-              "parentId":0,
-              "name":"水电费",
-              "value":"水电费",
-              "lv":0,
-              "children":[]
+              id: 35,
+              parentId: 0,
+              name: '水电费',
+              value: '水电费',
+              lv: 0,
+              children: []
             }
           ]
         },
         {
-          "id":19,
-          "parentId":0,
-          "name":"人力资源费",
-          "value":"人力资源费",
-          "lv":0,
-          "children":[
+          id: 19,
+          parentId: 0,
+          name: '人力资源费',
+          value: '人力资源费',
+          lv: 0,
+          children: [
             {
-              "id":42,
-              "parentId":0,
-              "name":"招聘广告费",
-              "value":"招聘广告费",
-              "lv":0,
-              "children":[]
+              id: 42,
+              parentId: 0,
+              name: '招聘广告费',
+              value: '招聘广告费',
+              lv: 0,
+              children: []
             },
             {
-              "id":43,
-              "parentId":0,
-              "name":"社保和公积金",
-              "value":"社保和公积金",
-              "lv":0,
-              "children":[]
+              id: 43,
+              parentId: 0,
+              name: '社保和公积金',
+              value: '社保和公积金',
+              lv: 0,
+              children: []
             }
           ]
         },
         {
-          "id":20,
-          "parentId":0,
-          "name":"服务费",
-          "value":"服务费",
-          "lv":0,
-          "children":[
+          id: 20,
+          parentId: 0,
+          name: '服务费',
+          value: '服务费',
+          lv: 0,
+          children: [
             {
-              "id":44,
-              "parentId":0,
-              "name":"签证服务费",
-              "value":"签证服务费",
-              "lv":0,
-              "children":[]
+              id: 44,
+              parentId: 0,
+              name: '签证服务费',
+              value: '签证服务费',
+              lv: 0,
+              children: []
             },
             {
-              "id":45,
-              "parentId":0,
-              "name":"翻译服务费",
-              "value":"翻译服务费",
-              "lv":0,
-              "children":[]
+              id: 45,
+              parentId: 0,
+              name: '翻译服务费',
+              value: '翻译服务费',
+              lv: 0,
+              children: []
             },
             {
-              "id":46,
-              "parentId":0,
-              "name":"财务服务费",
-              "value":"财务服务费",
-              "lv":0,
-              "children":[]
+              id: 46,
+              parentId: 0,
+              name: '财务服务费',
+              value: '财务服务费',
+              lv: 0,
+              children: []
             }
           ]
         }
-
       ],
       isReason: false,
 
@@ -444,44 +441,44 @@ export default {
       // 币种
       currencyList: [
         {
-          currencyId:"1",
-          currencyName:"人民币（CNY）",
-          del:false,
-          name:"人民币（CNY）",
-          rate:1,
+          currencyId: '1',
+          currencyName: '人民币（CNY）',
+          del: false,
+          name: '人民币（CNY）',
+          rate: 1
         },
         {
-          currencyId:"2",
-          currencyName:"美元（USD）",
-          del:false,
-          name:"美元（USD）",
-          rate:6.2879,
+          currencyId: '2',
+          currencyName: '美元（USD）',
+          del: false,
+          name: '美元（USD）',
+          rate: 6.2879
         },
         {
-          currencyId:"3",
-          currencyName:"欧元（EUR）",
-          del:false,
-          name:"欧元（EUR）",
-          rate:7.8234,
+          currencyId: '3',
+          currencyName: '欧元（EUR）',
+          del: false,
+          name: '欧元（EUR）',
+          rate: 7.8234
         },
         {
-          currencyId:"4",
-          currencyName:"英镑（GBP）",
-          del:false,
-          name:"英镑（GBP）",
-          rate:8.915,
+          currencyId: '4',
+          currencyName: '英镑（GBP）',
+          del: false,
+          name: '英镑（GBP）',
+          rate: 8.915
         }
       ],
       rate: null
     }
   },
   methods: {
-    navigateBack () {
+    navigateBack() {
       ui.showConfirm({
         content: '表单尚未提交，你要离开么？',
         confirmButtonText: '离开',
         cancelButtonText: '继续填写',
-        success: (result) => {
+        success: result => {
           if (result.confirm) {
             ui.offBackButtonClick({
               listener: this.navigateBack
@@ -492,7 +489,7 @@ export default {
       })
     },
     // 付款日期
-    radioinit (thisdate) {
+    radioinit(thisdate) {
       this.dateobj.radioDate = thisdate
       this.dateobj.radioDate = thisdate.split('/')
       console.log(this.dateobj)
@@ -500,71 +497,89 @@ export default {
       this.radioYear = this.dateobj.radioDate[0]
       this.radioMonth = this.dateobj.radioDate[1]
       this.radioDay = this.dateobj.radioDate[2]
-      this.dataValue = this.radioYear + '-' + this.radioMonth + '-' + this.radioDay
+      this.dataValue =
+        this.radioYear + '-' + this.radioMonth + '-' + this.radioDay
 
       // 第一次进入默认2个工作日
       if (this.isFrist) {
         let today = new Date()
         let year = today.getFullYear() + ''
         let month = getDoubleNumber(today.getMonth() + 1)
-        let day = getDoubleNumber(today.getDate() + 2)// 按需求默认两个工作日
+        let day = getDoubleNumber(today.getDate() + 2) // 按需求默认两个工作日
 
         this.dataValue = year + '-' + month + '-' + day
         this.isFrist = false
       }
     },
     // 日期选择
-    selectedChange (e) {
+    selectedChange(e) {
       this.radioinit(e)
       setTimeout(() => {
         this.radioCalendar = false
       }, 300)
     },
-    radioCalendaropen () {
+    radioCalendaropen() {
       this.radioCalendar = true
     },
-    format (obj) {
+    format(obj) {
       var date = new Date(obj)
       var y = 1900 + date.getYear()
       var m = '0' + (date.getMonth() + 1)
       var d = '0' + date.getDate()
-      return y + '/' + m.substring(m.length - 2, m.length) + '/' + d.substring(d.length - 2, d.length)
+      return (
+        y +
+        '/' +
+        m.substring(m.length - 2, m.length) +
+        '/' +
+        d.substring(d.length - 2, d.length)
+      )
     },
-    
-    excuseChange (val) {
+
+    excuseChange(val) {
       console.log('val change', val)
       // console.log(this.siteValue)
     },
     // 日期选择
-    dataChange (val) {
+    dataChange(val) {
       console.log('val change', val)
       this.dataValue = val
     },
     // 添加商品
     handleAddProduct() {
-      import(`#/pages/product.ui`).then((content) => {
+      import(`#/pages/product.ui`).then(content => {
         ui.showDialog({
           content: content,
           statusBarColor: 'black',
           data: {},
-          onHide: (data) => {
+          onHide: data => {
             console.log('接收商品返回的参数', data)
             if (data && data.product) {
-              console.log('正确收到商品数据', data.product)
+              // console.log('正确收到商品数据', data.product)
+              this.entity.productList.push({
+                id: data.product.id,
+                name: data.product.name,
+                model: data.product.model,
+                number: data.product.number,
+                qty: 1,
+                price: '28.99'
+              })
+
+              console.log('~~~~', ui.set)
+              console.log(this.productList)
             }
           }
         })
       })
     },
     // 收款人
-    payee () {
-      import(`#/pages/payeeInfo.ui`).then((content) => {
+    payee() {
+      import(`#/pages/payeeInfo.ui`).then(content => {
         ui.showDialog({
           content: content,
           statusBarColor: 'black',
           data: {},
           // 接收ui.hideDialog回传的数据
-          onHide: (data) => {
+          onHide: data => {
             console.log('接收返回的参数', data)
             if (data && data.payeeInfo) {
               this.payeeInfo = []
@@ -578,19 +593,19 @@ export default {
     },
 
     // 项目列表选择
-    projectChange (val) {
+    projectChange(val) {
       console.log('val change', val)
       this.projectId = this.projectIdList[val]
     },
     // 付款事由列表选择
-    reasonChange (val) {
+    reasonChange(val) {
       if (val[0] !== '1') {
         this.reasonName1 = val[0]
         this.reasonName2 = val[1]
       }
     },
 
-    inputChange (e) {
+    inputChange(e) {
       console.log(e)
       if (e < 0) {
         this.money = 0
@@ -600,15 +615,13 @@ export default {
       this.approverList = []
     },
     // 失去焦点后获取审批人
-    inputBlur () {
-
-    },
+    inputBlur() {},
     // 提交附件
-    addAccessory () {
+    addAccessory() {
       this.chooseImage(2)
     },
 
-    submit () {
+    submit() {
       // if (this.projectId === '') {
       //   ui.showToast({ title: '请选择项目' })
       // } else if (this.reasonName1 === '请选择') {
@@ -631,7 +644,7 @@ export default {
       console.log(this.productList)
     },
     // 保存为草稿
-    saveDraft () {
+    saveDraft() {
       if (this.projectId === '') {
         ui.showToast({ title: '请选择项目' })
       } else if (this.reasonName1 === '') {
@@ -650,36 +663,33 @@ export default {
         this.paySubmit()
       }
     },
-    paySubmit () {
+    paySubmit() {
       ui.showToast({ title: '成功', icon: 'success' })
       setTimeout(() => {
         ui.navigateBack()
       }, 1000)
-
     },
-    chooseImage (index) {
+    chooseImage(index) {
       ui.chooseImage({
         sourceType: sourceType[index],
         sizeType: sizeType[1],
-        success: (res) => {
+        success: res => {
           res.tempFilePaths.forEach((item, index) => {
             this.accessoryContent.push(item)
           })
         },
-        fail: (res) => {
-
-        }
+        fail: res => {}
       })
     },
     // 币种选择
-    showIndexList () {
+    showIndexList() {
       let itemList = []
       this.currencyList.forEach((item, index) => {
         itemList.push(item.currencyName)
       })
       ui.showActionSheet({
         itemList: itemList,
-        success: (index) => {
+        success: index => {
           console.log(index)
           if (index >= 0) {
             this.rate = this.currencyList[index].rate
@@ -689,7 +699,7 @@ export default {
           }
         }
       })
-    },
+    }
 
     // 导入
     // leadIn () {
@@ -726,32 +736,10 @@ export default {
     //     })
     //   })
     // }
-
   },
-  // 日期组件计算
-  created () {
-    // 计算时间范围
-    let radiodate = new Date()
-    let rangedate = new Date()
-    this.radioDate = this.format(Date.parse(radiodate))
-    let start, end
-    console.log('时间', radiodate)
-    // start = this.format(rangedate.setMonth(new Date().getMonth()))
-
-    radiodate.setMonth(radiodate.getMonth())
-    let year = radiodate.getFullYear()
-    let month = radiodate.getMonth() + 1
-    month = (month < 10 ? '0' + month : month)
-    start = (year.toString() + '/' + month.toString())
-
-    end = this.format(rangedate.setMonth(new Date().getMonth() + 2))
-    // start = start.substring(0, 7)
-    end = end.substring(0, 7)
-
-    console.log('前三个月', start, end)
-    this.monthrange.push(start, end)
+  created() {
   },
-  mounted () {
+  mounted() {
     //监听安卓返回
     ui.onBackButtonClick(this.navigateBack)
   }

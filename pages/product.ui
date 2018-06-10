@@ -58,7 +58,7 @@
             </ui-view>
             <ui-view slot="content">
               <ui-row  class="content animated {{ aniV }}" height="40" ui:for="{{ item.list }}" ui:for-item="item2" ui:for-index="index2">
-                <ui-col span="12" vertical-align="middle" align="left" space-left="18" bindtap="handleAddProduct(item2)">{{ item2.name }}</ui-col>
+                <ui-col span="12" vertical-align="middle" align="left" space-left="18" bindtap="handleAddProduct(item2)">{{ item2.name + ' ' + item2.model }}</ui-col>
               </ui-row>
             </ui-view>
           </ui-accordion>
@@ -107,13 +107,22 @@ export default {
             count: 4,
             list: [
               {
-                name: '百树得1 100g/瓶 乳液 德国拜耳'
+                name: '百树得1',
+                model: ' 100g/瓶 乳液 德国拜耳',
+                number: '1001001',
+                id: '1232031'
               },
               {
-                name: '百树得2 40g/瓶 乳液 德国拜耳'
+                name: '百树得2',
+                model: ' 30g/瓶 乳液 德国拜耳',
+                number: '1001002',
+                id: '1232032'
               },
               {
-                name: '百树得3 20g/瓶 乳液 德国拜耳'
+                name: '百树得3',
+                model: ' 40g/瓶 乳液 德国拜耳',
+                number: '1001003',
+                id: '1232033'
               }
             ]
           },
@@ -123,13 +132,22 @@ export default {
             count: 5,
             list: [
               {
-                name: '百树得 100g/瓶 乳液 德国拜耳'
+                name: '氧乐果1',
+                model: ' 100g/瓶 乳液 德国拜耳',
+                number: '1001001',
+                id: '1232012'
               },
               {
-                name: '百树得2 40g/瓶 乳液 德国拜耳'
+                name: '氧乐果2',
+                model: ' 20g/瓶 乳液 德国拜耳',
+                number: '1001001',
+                id: '1232042'
               },
               {
-                name: '百树得3 20g/瓶 乳液 德国拜耳'
+                name: '氧乐果3',
+                model: ' 440g/瓶 乳液 德国拜耳',
+                number: '1001003',
+                id: '1232032'
               }
             ]
           },
@@ -139,13 +157,22 @@ export default {
             count: 2,
             list: [
               {
-                name: '百树得 100g/瓶 乳液 德国拜耳'
+                name: '氧乐果1',
+                model: ' 100g/瓶 乳液 德国拜耳',
+                number: '1001001',
+                id: '1232012'
               },
               {
-                name: '百树得2 40g/瓶 乳液 德国拜耳'
+                name: '氧乐果2',
+                model: ' 20g/瓶 乳液 德国拜耳',
+                number: '1001001',
+                id: '1232042'
               },
               {
-                name: '百树得3 20g/瓶 乳液 德国拜耳'
+                name: '氧乐果3',
+                model: ' 440g/瓶 乳液 德国拜耳',
+                number: '1001003',
+                id: '1232032'
               }
             ]
           },
@@ -155,13 +182,22 @@ export default {
             count: 9,
             list: [
               {
-                name: '百树得 100g/瓶 乳液 德国拜耳'
+                name: '氧乐果1',
+                model: ' 100g/瓶 乳液 德国拜耳',
+                number: '1001001',
+                id: '1232012'
               },
               {
-                name: '百树得2 40g/瓶 乳液 德国拜耳'
+                name: '氧乐果2',
+                model: ' 20g/瓶 乳液 德国拜耳',
+                number: '1001001',
+                id: '1232042'
               },
               {
-                name: '百树得3 20g/瓶 乳液 德国拜耳'
+                name: '氧乐果3',
+                model: ' 440g/瓶 乳液 德国拜耳',
+                number: '1001003',
+                id: '1232032'
               }
             ]
           },
@@ -171,13 +207,22 @@ export default {
             count: 7,
             list: [
               {
-                name: '百树得 100g/瓶 乳液 德国拜耳'
+                name: '氧乐果1',
+                model: ' 100g/瓶 乳液 德国拜耳',
+                number: '1001001',
+                id: '1232012'
               },
               {
-                name: '百树得2 40g/瓶 乳液 德国拜耳'
+                name: '氧乐果2',
+                model: ' 20g/瓶 乳液 德国拜耳',
+                number: '1001001',
+                id: '1232042'
               },
               {
-                name: '百树得3 20g/瓶 乳液 德国拜耳'
+                name: '氧乐果3',
+                model: ' 440g/瓶 乳液 德国拜耳',
+                number: '1001003',
+                id: '1232032'
               }
             ]
           },
@@ -187,13 +232,22 @@ export default {
             count: 4,
             list: [
               {
-                name: '百树得 100g/瓶 乳液 德国拜耳'
+                name: '氧乐果1',
+                model: ' 100g/瓶 乳液 德国拜耳',
+                number: '1001001',
+                id: '1232012'
               },
               {
-                name: '百树得2 40g/瓶 乳液 德国拜耳'
+                name: '氧乐果2',
+                model: ' 20g/瓶 乳液 德国拜耳',
+                number: '1001001',
+                id: '1232042'
               },
               {
-                name: '百树得3 20g/瓶 乳液 德国拜耳'
+                name: '氧乐果3',
+                model: ' 440g/瓶 乳液 德国拜耳',
+                number: '1001003',
+                id: '1232032'
               }
             ]
           }
@@ -204,13 +258,22 @@ export default {
             count: 4,
             list: [
               {
-                name: '百树得 100g/瓶 乳液 德国拜耳'
+                name: '氧乐果1',
+                model: ' 100g/瓶 乳液 德国拜耳',
+                number: '1001001',
+                id: '1232012'
               },
               {
-                name: '百树得2 40g/瓶 乳液 德国拜耳'
+                name: '氧乐果2',
+                model: ' 20g/瓶 乳液 德国拜耳',
+                number: '1001001',
+                id: '1232042'
               },
               {
-                name: '百树得3 20g/瓶 乳液 德国拜耳'
+                name: '氧乐果3',
+                model: ' 440g/瓶 乳液 德国拜耳',
+                number: '1001003',
+                id: '1232032'
               }
             ]
           },
@@ -219,13 +282,22 @@ export default {
             count: 4,
             list: [
               {
-                name: '百树得 100g/瓶 乳液 德国拜耳'
+                name: '氧乐果1',
+                model: ' 100g/瓶 乳液 德国拜耳',
+                number: '1001001',
+                id: '1232012'
               },
               {
-                name: '百树得2 40g/瓶 乳液 德国拜耳'
+                name: '氧乐果2',
+                model: ' 20g/瓶 乳液 德国拜耳',
+                number: '1001001',
+                id: '1232042'
               },
               {
-                name: '百树得3 20g/瓶 乳液 德国拜耳'
+                name: '氧乐果3',
+                model: ' 440g/瓶 乳液 德国拜耳',
+                number: '1001003',
+                id: '1232032'
               }
             ]
           },
@@ -234,13 +306,22 @@ export default {
             count: 4,
             list: [
               {
-                name: '百树得 100g/瓶 乳液 德国拜耳'
+                name: '氧乐果1',
+                model: ' 100g/瓶 乳液 德国拜耳',
+                number: '1001001',
+                id: '1232012'
               },
               {
-                name: '百树得2 40g/瓶 乳液 德国拜耳'
+                name: '氧乐果2',
+                model: ' 20g/瓶 乳液 德国拜耳',
+                number: '1001001',
+                id: '1232042'
               },
               {
-                name: '百树得3 20g/瓶 乳液 德国拜耳'
+                name: '氧乐果3',
+                model: ' 440g/瓶 乳液 德国拜耳',
+                number: '1001003',
+                id: '1232032'
               }
             ]
           },
@@ -249,13 +330,22 @@ export default {
             count: 4,
             list: [
               {
-                name: '百树得 100g/瓶 乳液 德国拜耳'
+                name: '氧乐果1',
+                model: ' 100g/瓶 乳液 德国拜耳',
+                number: '1001001',
+                id: '1232012'
               },
               {
-                name: '百树得2 40g/瓶 乳液 德国拜耳'
+                name: '氧乐果2',
+                model: ' 20g/瓶 乳液 德国拜耳',
+                number: '1001001',
+                id: '1232042'
               },
               {
-                name: '百树得3 20g/瓶 乳液 德国拜耳'
+                name: '氧乐果3',
+                model: ' 440g/瓶 乳液 德国拜耳',
+                number: '1001003',
+                id: '1232032'
               }
             ]
           }
@@ -266,13 +356,22 @@ export default {
             count: 4,
             list: [
               {
-                name: '百树得 100g/瓶 乳液 德国拜耳'
+                name: '氧乐果1',
+                model: ' 100g/瓶 乳液 德国拜耳',
+                number: '1001001',
+                id: '1232012'
               },
               {
-                name: '百树得2 40g/瓶 乳液 德国拜耳'
+                name: '氧乐果2',
+                model: ' 20g/瓶 乳液 德国拜耳',
+                number: '1001001',
+                id: '1232042'
               },
               {
-                name: '百树得3 20g/瓶 乳液 德国拜耳'
+                name: '氧乐果3',
+                model: ' 440g/瓶 乳液 德国拜耳',
+                number: '1001003',
+                id: '1232032'
               }
             ]
           },
@@ -281,13 +380,22 @@ export default {
             count: 4,
             list: [
               {
-                name: '百树得 100g/瓶 乳液 德国拜耳'
+                name: '氧乐果1',
+                model: ' 100g/瓶 乳液 德国拜耳',
+                number: '1001001',
+                id: '1232012'
               },
               {
-                name: '百树得2 40g/瓶 乳液 德国拜耳'
+                name: '氧乐果2',
+                model: ' 20g/瓶 乳液 德国拜耳',
+                number: '1001001',
+                id: '1232042'
               },
               {
-                name: '百树得3 20g/瓶 乳液 德国拜耳'
+                name: '氧乐果3',
+                model: ' 440g/瓶 乳液 德国拜耳',
+                number: '1001003',
+                id: '1232032'
               }
             ]
           }
@@ -298,13 +406,22 @@ export default {
             count: 4,
             list: [
               {
-                name: '百树得 100g/瓶 乳液 德国拜耳'
+                name: '氧乐果1',
+                model: ' 100g/瓶 乳液 德国拜耳',
+                number: '1001001',
+                id: '1232012'
               },
               {
-                name: '百树得2 40g/瓶 乳液 德国拜耳'
+                name: '氧乐果2',
+                model: ' 20g/瓶 乳液 德国拜耳',
+                number: '1001001',
+                id: '1232042'
               },
               {
-                name: '百树得3 20g/瓶 乳液 德国拜耳'
+                name: '氧乐果3',
+                model: ' 440g/瓶 乳液 德国拜耳',
+                number: '1001003',
+                id: '1232032'
               }
             ]
           },
@@ -330,13 +447,22 @@ export default {
             count: 4,
             list: [
               {
-                name: '百树得 100g/瓶 乳液 德国拜耳'
+                name: '氧乐果1',
+                model: ' 100g/瓶 乳液 德国拜耳',
+                number: '1001001',
+                id: '1232012'
               },
               {
-                name: '百树得2 40g/瓶 乳液 德国拜耳'
+                name: '氧乐果2',
+                model: ' 20g/瓶 乳液 德国拜耳',
+                number: '1001001',
+                id: '1232042'
               },
               {
-                name: '百树得3 20g/瓶 乳液 德国拜耳'
+                name: '氧乐果3',
+                model: ' 440g/瓶 乳液 德国拜耳',
+                number: '1001003',
+                id: '1232032'
               }
             ]
           },
@@ -345,13 +471,22 @@ export default {
             count: 4,
             list: [
               {
-                name: '百树得 100g/瓶 乳液 德国拜耳'
+                name: '氧乐果1',
+                model: ' 100g/瓶 乳液 德国拜耳',
+                number: '1001001',
+                id: '1232012'
               },
               {
-                name: '百树得2 40g/瓶 乳液 德国拜耳'
+                name: '氧乐果2',
+                model: ' 20g/瓶 乳液 德国拜耳',
+                number: '1001001',
+                id: '1232042'
               },
               {
-                name: '百树得3 20g/瓶 乳液 德国拜耳'
+                name: '氧乐果3',
+                model: ' 440g/瓶 乳液 德国拜耳',
+                number: '1001003',
+                id: '1232032'
               }
             ]
           }
@@ -380,6 +515,7 @@ export default {
   },
   mounted() {
     this.tabContentData = this.productList[0]
+    console.info('执行了product的mounted函数')
   },
   methods: {
     hideWindow(e) {
