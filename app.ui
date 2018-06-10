@@ -9,7 +9,8 @@ export default {
       "pages/accordion",
       "pages/dashborad",
       "pages/saleIssues",
-      "pages/mydate"
+      "pages/mydate",
+      "pages/saleIssue/list"
     ],
     "theme": {
       "theme-color": "#3399ff"
