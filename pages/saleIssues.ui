@@ -21,8 +21,17 @@
 
     <ui-view class="form_content">
       <ui-row height="50">
+        <ui-col vertical-align="middle" align="left" width="100" space-left="10">
+          <ui-view>业务日期</ui-view>
+        </ui-col>
+        <ui-col vertical-align="middle" align="right" space="20" bindtap="radioCalendaropen">
+          <ui-view class="right_column">{{ dataValue }}</ui-view>
+        </ui-col>
+      </ui-row>
+
+      <ui-row height="50">
         <ui-col vertical-align="middle" align="left" width="70" space-left="10">
-          <ui-view>申请人</ui-view>
+          <ui-view>开单人</ui-view>
         </ui-col>
         <ui-col vertical-align="middle" align="right" space="20">
           <ui-view class="right_column">{{ userName }}</ui-view>
@@ -31,7 +40,7 @@
 
       <ui-row height="50">
         <ui-col vertical-align="middle" align="left" width="70" space-left="10">
-          <ui-view>项目</ui-view>
+          <ui-view>类型</ui-view>
         </ui-col>
         <ui-col vertical-align="middle" align="right" space="20">
           <ui-view class="right_column">
@@ -40,17 +49,17 @@
         </ui-col>
       </ui-row>
 
-      <ui-row height="50">
+      <!-- <ui-row height="50">
         <ui-col vertical-align="middle" align="left" width="70" space-left="10">
           <ui-view>币种</ui-view>
         </ui-col>
         <ui-col vertical-align="middle" align="right" space="20" bindtap="showIndexList">
           <ui-view class="right_column">
             {{ currency }}
-            <!-- <ui-picker title="" range="{{ currencyList }}" value="{{ currencyValue }}" bindchange="currencyChange"> -->
+            <ui-picker title="" range="{{ currencyList }}" value="{{ currencyValue }}" bindchange="currencyChange">
           </ui-view>
         </ui-col>
-      </ui-row>
+      </ui-row> -->
 
       <!-- <ui-row height="50">
         <ui-col vertical-align="middle" align="left" width="70" space-left="10">
@@ -68,7 +77,7 @@
         </ui-col>
       </ui-row> -->
 
-      <ui-row height="50">
+      <!-- <ui-row height="50">
         <ui-col vertical-align="middle" align="left" width="70" space-left="10">
           <ui-view>销售事由</ui-view>
         </ui-col>
@@ -77,23 +86,14 @@
             <ui-picker mode="multiSelector" is-chain value="{{ reasonValue }}" range="{{ reasonList }}" range-key="name" bindchange="reasonChange"></ui-picker>
           </ui-view>
         </ui-col>
-      </ui-row>
-      <ui-row height="50">
+      </ui-row> -->
+
+      <!-- <ui-row height="50">
         <ui-col vertical-align="middle" align="left" width="70" space-left="10"></ui-col>
         <ui-col vertical-align="middle" space="20">
           <ui-input placeholder="其他事由" placeholder-style="color:#999B9E" show-clear="{{false}}" ui:model="{{ reasonName3 }}"></ui-input>
         </ui-col>
-      </ui-row>
-
-
-      <ui-row height="50">
-        <ui-col vertical-align="middle" align="left" width="100" space-left="10">
-          <ui-view>最迟收款日期</ui-view>
-        </ui-col>
-        <ui-col vertical-align="middle" align="right" space="20" bindtap="radioCalendaropen">
-          <ui-view class="right_column">{{ dataValue }}</ui-view>
-        </ui-col>
-      </ui-row>
+      </ui-row> -->
 
       <ui-row height="50" class="payee" space-top="10">
         <ui-col vertical-align="middle" align="left" width="100" space-left="10">
@@ -103,6 +103,7 @@
           <ui-button plain="true" full-width="{{false}}" bindtap="payee">选择客户</ui-button>
         </ui-col>
       </ui-row>
+
       <ui-view class="payee_content" ui:for="{{ payeeInfo }}" ui:for-item="item">
         <ui-row height="35">
           <ui-col vertical-align="middle" align="left" width="70" space-left="10">
@@ -114,24 +115,74 @@
         </ui-row>
         <ui-row height="35">
           <ui-col vertical-align="middle" align="left" width="70" space-left="10">
-            <ui-view>开户行</ui-view>
+            <ui-view>地址</ui-view>
           </ui-col>
           <ui-col vertical-align="middle" space="20">
-            <ui-input placeholder="请输入开户行" placeholder-style="color:#999B9E" show-clear="{{false}}" value="{{ item.bank }}" ui:model="{{ item.bank }}"></ui-input>
-          </ui-col>
-        </ui-row>
-        <ui-row height="35">
-          <ui-col vertical-align="middle" align="left" width="70" space-left="10">
-            <ui-view>账号</ui-view>
-          </ui-col>
-          <ui-col vertical-align="middle" space="20">
-            <ui-input type="number" placeholder="请输入账号" placeholder-style="color:#999B9E" show-clear="{{false}}" value="{{ item.cardNum }}" ui:model="{{ item.cardNum }}"></ui-input>
+            <ui-input placeholder="地址" placeholder-style="color:#999B9E" show-clear="{{false}}" value="{{ item.bank }}" ui:model="{{ item.bank }}"></ui-input>
           </ui-col>
         </ui-row>
       </ui-view>
 
       <!-- 添加商品 -->
-      <ui-view class="recipients">
+      <ui-row height="50" class="product" space-top="10">
+        <ui-col vertical-align="middle" align="left" width="100" space-left="10">
+          <ui-view>商品列表</ui-view>
+        </ui-col>
+        <ui-col vertical-align="middle" align="right" space="20">
+          <ui-button plain="true" full-width="{{false}}" bindtap="handleAddProduct">添加商品</ui-button>
+        </ui-col>
+      </ui-row>
+
+      <ui-row hidden="50" ui:for="{{ productList }}" class="product_list">
+        <ui-col style="height:140px;border:1px solid #ddd;" vertical-align="middle" align="center" span="1">
+          {{index + 1}}
+        </ui-col>
+        <ui-col span="11" style="display:flex;">
+          <ui-row height="35">
+            <ui-col vertical-align="middle" align="left" width="70" space-left="10">
+              <ui-view>商品名称</ui-view>
+            </ui-col>
+            <ui-col vertical-align="middle" align="right" space="20">
+              <ui-text>{{item.name}}</ui-text>
+            </ui-col>
+          </ui-row>
+          <ui-row height="35">
+            <ui-col vertical-align="middle" align="left" width="70" space-left="10">
+              <ui-view>商品规格</ui-view>
+            </ui-col>
+            <ui-col vertical-align="middle" align="right" space="20">
+              <ui-text>{{item.model}}</ui-text>
+            </ui-col>
+          </ui-row>
+          <ui-row height="35">
+            <ui-col vertical-align="middle" align="left" width="70" space-left="10">
+              <ui-view>数量</ui-view>
+            </ui-col>
+            <ui-col vertical-align="middle" align="right" space="20">
+              <ui-stepper value="{{item.qty}}"></ui-stepper>
+            </ui-col>
+          </ui-row>
+          <ui-row height="35">
+            <ui-col vertical-align="middle" align="left" width="70" space-left="10">
+              <ui-view>商品单价</ui-view>
+            </ui-col>
+            <ui-col vertical-align="middle" align="right" space="20">
+              <ui-virtual-input style="width: 40%;" ui:model="{{ item.price }}" type="digital" placeholder="￥"></ui-virtual-input>
+            </ui-col>
+          </ui-row>
+        </ui-col>
+      </ui-row>
+
+      <!-- <ui-popup ui:model="{{ showInputPrice }}" position="bottom" height="300">
+        <ui-view style="padding: 15px;">
+          <ui-view class="">
+            输入框的值：{{ currentPrice }}
+            <ui-virtual-input ui:model="{{ currentPrice }}" type="digital" placeholder="小数虚拟输入框"></ui-virtual-input>
+          </ui-view>
+        </ui-view>
+      </ui-popup> -->
+
+      <!-- <ui-view class="recipients">
         <ui-view class="title">添加商品</ui-view>
         <ui-view class="recipients_content">
           <ui-view class="recipients_list" ui:for="{{ approverList }}" ui:for-item="item">
@@ -145,13 +196,12 @@
           </ui-view>
           <ui-view class="recipients_list" >
             <ui-view class="add_recipients">
-              <ui-icon type="plus2" size="20" color="#B3B5B5"></ui-icon>
+              <ui-icon bindtap="handleAddProduct" type="plus2" size="20" color="#B3B5B5"></ui-icon>
             </ui-view>
           </ui-view>
         </ui-view>
 
-      </ui-view>
-
+      </ui-view> -->
 
       <ui-view class="detail_description">
         <ui-text block>备注</ui-text>
@@ -219,9 +269,26 @@ export default {
   },
   data () {
     return {
-      userName: '张麻子',
+      showInputPrice: false,
+      currentPrice: '125',
+      userName: '张三丰',
       userId: '10010',
-
+      productList: [
+        {
+          name: '银法利',
+          model: '100g/瓶 德国拜耳',
+          number: '1001001',
+          qty: 12,
+          price: '34.50'
+        },
+        {
+          name: '安泰生',
+          model: '100ml/袋子 德国拜耳',
+          number: '1001002',
+          qty: 4,
+          price: '19.99'
+        }
+      ],
       projectList: ['请选择','赊销','现消','其它'],
       projectIdList: ['',1,2,3],
       projectId: '',
@@ -473,6 +540,22 @@ export default {
       console.log('val change', val)
       this.dataValue = val
     },
+    // 添加商品
+    handleAddProduct() {
+      import(`#/pages/product.ui`).then((content) => {
+        ui.showDialog({
+          content: content,
+          statusBarColor: 'black',
+          data: {},
+          onHide: (data) => {
+            console.log('接收商品返回的参数', data)
+            if (data && data.product) {
+              console.log('正确收到商品数据', data.product)
+            }
+          }
+        })
+      })
+    },
     // 收款人
     payee () {
       import(`#/pages/payeeInfo.ui`).then((content) => {
@@ -526,25 +609,26 @@ export default {
     },
 
     submit () {
-      if (this.projectId === '') {
-        ui.showToast({ title: '请选择项目' })
-      } else if (this.reasonName1 === '请选择') {
-        ui.showToast({ title: '请选择付款事由' })
-      } else if (this.money === '') {
-        ui.showToast({ title: '请填写付款金额' })
-      } else if (this.currencyId === '') {
-        ui.showToast({ title: '请选择币种' })
-      } else if (this.payeeInfo[0].account === '') {
-        ui.showToast({ title: '请填写账户名称' })
-      } else if (this.payeeInfo[0].bank === '') {
-        ui.showToast({ title: '请填写开户行名称' })
-      } else if (this.payeeInfo[0].cardNum === '') {
-        ui.showToast({ title: '请填写银行账号' })
-      } else if (this.approvalUserId === null) {
-        ui.showToast({ title: '请选择审批人' })
-      } else {
-       this.paySubmit()
-      }
+      // if (this.projectId === '') {
+      //   ui.showToast({ title: '请选择项目' })
+      // } else if (this.reasonName1 === '请选择') {
+      //   ui.showToast({ title: '请选择付款事由' })
+      // } else if (this.money === '') {
+      //   ui.showToast({ title: '请填写付款金额' })
+      // } else if (this.currencyId === '') {
+      //   ui.showToast({ title: '请选择币种' })
+      // } else if (this.payeeInfo[0].account === '') {
+      //   ui.showToast({ title: '请填写账户名称' })
+      // } else if (this.payeeInfo[0].bank === '') {
+      //   ui.showToast({ title: '请填写开户行名称' })
+      // } else if (this.payeeInfo[0].cardNum === '') {
+      //   ui.showToast({ title: '请填写银行账号' })
+      // } else if (this.approvalUserId === null) {
+      //   ui.showToast({ title: '请选择审批人' })
+      // } else {
+      //  this.paySubmit()
+      // }
+      console.log(this.productList)
     },
     // 保存为草稿
     saveDraft () {
@@ -675,72 +759,71 @@ export default {
 </script>
 
 <style lang="less">
-  .ui-actionsheet-menu-cell {
-    font-size: 14px;
-    color: #666;
-  }
+.ui-actionsheet-menu-cell {
+  font-size: 14px;
+  color: #666;
+}
 .nav_bar {
-  background: linear-gradient(to right, #1F97FE, #126DFE);
-  .ui-view{
+  background: linear-gradient(to right, #1f97fe, #126dfe);
+  .ui-view {
     color: #fff;
     font-size: 14px;
   }
-  .ui-text{
+  .ui-text {
     color: #fff;
     font-size: 16px;
   }
 }
 
-.form_content{
+.form_content {
   // padding: 15px 0;
-  .ui-row{
+  .ui-row {
     background: #fff;
     .mix-1px(0, 0, 1, 0, #ccc);
-    .ui-view{
+    .ui-view {
       font-size: 14px;
-      color: #1A1E23;
-      &.right_column{
+      color: #1a1e23;
+      &.right_column {
         width: 100%;
         height: 35px;
         line-height: 35px;
       }
     }
-    .ui-row{
+    .ui-row {
       width: 100%;
-      .right_column{
+      .right_column {
         width: 95%;
         font-size: 12px;
       }
-      .ui-textarea-wrapper{
+      .ui-textarea-wrapper {
         padding: 10px;
       }
     }
-    .weui-cell{
+    .weui-cell {
       padding: 0;
-      .ui-picker-select{
+      .ui-picker-select {
         font-size: 14px;
       }
     }
-    .ui-input{
-      border:0px;
+    .ui-input {
+      border: 0px;
       padding: 0px;
-      .ui-input-inner{
+      .ui-input-inner {
         height: 33px;
         width: 100%;
         text-align: right;
       }
     }
-    &.payee{
-      &:before{
+    &.payee {
+      &:before {
         border-bottom-width: 0px;
       }
-      .ui-button{
+      .ui-button {
         line-height: 30px;
       }
     }
-
   }
-  .payee_content{
+  .payee_content {
     margin-bottom: 10px;
     // width: 95%;
     // margin: 0 auto;
@@ -749,61 +832,62 @@ export default {
     // box-shadow: 0px 0px 13px 0px #d6d7d8;
   }
 }
-.weui-cell__hd{
+.weui-cell__hd {
   display: none;
 }
-.money_tip{
+.money_tip {
   text-align: right;
   padding-right: 10px;
   font-size: 12px;
-  color:#999B9E;
+  color: #999b9e;
   line-height: 30px;
   background-color: #fff;
   .mix-1px(0, 0, 1, 0, #ccc);
-  .ui-text{
-    color:red;
+  .ui-text {
+    color: red;
   }
 }
-.detail_description{
+.detail_description {
+  margin-top: 10px;
   margin-bottom: 2px;
   background: #fff;
-  .ui-text{
+  .ui-text {
     // width: 70px;
     text-align: left;
     line-height: 30px;
-    color: #1A1E23;
+    color: #1a1e23;
     padding-left: 10px;
   }
-  .ui-textarea-wrapper{
+  .ui-textarea-wrapper {
     border: 0;
     padding: 10px;
   }
 }
-.recipients{
+.recipients {
   margin-bottom: 10px;
   background-color: #fff;
-  .title{
+  .title {
     text-align: left;
     padding-left: 10px;
     line-height: 40px;
-    .ui-text{
+    .ui-text {
       font-size: 12px;
       color: #ccc;
     }
   }
-  .recipients_content{
+  .recipients_content {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
     padding-bottom: 20px;
-    .recipients_list{
+    .recipients_list {
       display: inline-flex;
       text-align: center;
       padding: 5px 15px;
-      .list_content{
+      .list_content {
         position: relative;
-        .close{
+        .close {
           position: absolute;
           top: -3px;
           right: -3px;
@@ -811,70 +895,69 @@ export default {
           height: 13px;
           border-radius: 50%;
           z-index: 9;
-          background-color: #14171B;
-          line-height:13px;
+          background-color: #14171b;
+          line-height: 13px;
           font-size: 12px;
           color: #fff;
         }
-        .ui-image{
+        .ui-image {
           width: 40px;
           height: 40px;
           border-radius: 50%;
           margin-bottom: 10px;
         }
-        .ui-text{
+        .ui-text {
           color: #060606;
           font-size: 12px;
         }
       }
-      .add_recipients{
+      .add_recipients {
         width: 40px;
         height: 40px;
         border-radius: 50%;
-        background-color: #F4F4F4;
+        background-color: #f4f4f4;
         line-height: 40px;
         text-align: center;
       }
     }
-
   }
 }
 
 // 附件
 
-.accessory_wrap{
+.accessory_wrap {
   margin-bottom: 10px;
   background: #fff;
   padding: 10px;
-  .ui-text{
+  .ui-text {
     text-align: left;
     line-height: 40px;
-    color: #1A1E23;
+    color: #1a1e23;
   }
-  .accessory_content{
+  .accessory_content {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
 
-    .add_accessory{
+    .add_accessory {
       display: inline-flex;
       text-align: center;
-      .ui-view{
+      .ui-view {
         margin-right: 10px;
         text-align: center;
         width: 60px;
         height: 60px;
-        background-color: #F4F4F4;
+        background-color: #f4f4f4;
         line-height: 60px;
         text-align: center;
       }
     }
-    .accessory_list{
+    .accessory_list {
       display: inline-flex;
       margin-right: 5px;
       position: relative;
-      .close{
+      .close {
         position: absolute;
         top: -3px;
         right: -3px;
@@ -882,8 +965,8 @@ export default {
         height: 15px;
         border-radius: 50%;
         z-index: 9;
-        background-color: #14171B;
-        line-height:15px;
+        background-color: #14171b;
+        line-height: 15px;
         text-align: center;
         font-size: 12px;
         color: #fff;
@@ -892,8 +975,16 @@ export default {
   }
 }
 //弹窗
-.ui-confirm-content{
+.ui-confirm-content {
   text-align: center;
 }
 
+.product_list {
+  margin-bottom: 0;
+}
+
+.ui-virtual-input-inner {
+  height: 28px;
+  line-height: 28px;
+}
 </style>
