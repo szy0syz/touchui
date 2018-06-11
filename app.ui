@@ -10,7 +10,8 @@ export default {
       "pages/dashborad",
       "pages/saleIssues",
       "pages/mydate",
-      "pages/saleIssue/list"
+      "pages/saleIssue/list",
+      "pages/saleIssue/search"
     ],
     "theme": {
       "theme-color": "#3399ff"

@@ -1,23 +1,169 @@
-<!--销售出库单查询-->
+<!--销售出库单-->
 <template>
   <ui-page>
+    <ui-nav-bar slot="nav-bar" custom-style="{{ {'border-bottom':'1px solid rgba(231, 231, 231, 0.6)','background-color':'#fff'} }}">
+      <ui-row height="46">
+        <ui-col vertical-align="middle" align="center" width="70">
+          <ui-view class="nav_left">
+              <ui-icon type="arrow-left" size="16" color="#2DBAAA"></ui-icon>返回
+          </ui-view>
 
+        </ui-col>
+        <ui-col vertical-align="middle" align="center">
+          <ui-view class="nav_title">销售出库单</ui-view>
+        </ui-col>
+        <ui-col vertical-align="middle" align="center" width="35">
+          <ui-icon type="plus" size="22"></ui-icon>
+        </ui-col>
+        <ui-col bindtap="handleSearch" vertical-align="middle" align="center" width="35">
+          <ui-icon type="search" size="22"></ui-icon>
+        </ui-col>
+      </ui-row>
+    </ui-nav-bar>
+    <ui-segment style="margin: 6px;" bindchange="changeTab2">
+      <ui-segment-item>
+        所有
+      </ui-segment-item>
+      <ui-segment-item>
+        已售
+      </ui-segment-item>
+      <ui-segment-item>
+        暂存
+      </ui-segment-item>
+      <ui-segment-item>
+        退货
+      </ui-segment-item>
+    </ui-segment>
+    <ui-view class="tabContent">
+      <!-- {{tabContent[contentshow2]}} -->
+      
+      <ui-row class="item-content" space-bottom="5">
+        <ui-col style="display: flex;" span="2" space-right="5">
+          <ui-icon style="margin: auto;" type="success" color="#bbb;" size="26"></ui-icon>
+        </ui-col>
+        <ui-col span="10" space-right="22">
+          <ui-row space="0">
+            <ui-col vertical-align="bottom" span="7">砚山农药批发公司</ui-col>
+            <ui-col vertical-align="bottom" align="right" span="5">
+              <ui-text style="text-decoration: underline;">销: 6</ui-text>
+            </ui-col>
+          </ui-row space="0">
+          <ui-row>
+            <ui-col style="display:flex;" align="left" vertical-align="center" span="7">
+              <ui-text style="margin:auto 0;" class="fnumber">SO180597251184</ui-text>
+            </ui-col>
+            <ui-col align="right" vertical-align="center" span="5">
+              <ui-text class="ftotal">￥4704.00</ui-text>
+            </ui-col>
+          </ui-row space="0">
+          <ui-row>
+            <ui-col align="left" vertical-align="top" span="7">
+              <ui-text class="fnumber">2018-06-10 09:18</ui-text>
+            </ui-col>
+            <ui-col vertical-align="top" align="right" span="5">
+              <ui-text class="fnumber">跑马山1#库</ui-text>
+            </ui-col>
+          </ui-row>
+        </ui-col>
+      </ui-row>
+    </ui-view>
+
+    <ui-row class="item-content" space-bottom="5">
+        <ui-col style="display: flex;" span="2" space-right="5">
+          <ui-icon style="margin: auto;" type="success" color="#bbb;" size="26"></ui-icon>
+        </ui-col>
+        <ui-col span="10" space-right="22">
+          <ui-row space="0">
+            <ui-col vertical-align="bottom" span="7">大理冰川见客户</ui-col>
+            <ui-col vertical-align="bottom" align="right" span="5">
+              <ui-text style="text-decoration: underline;">销: 3</ui-text>
+            </ui-col>
+          </ui-row space="0">
+          <ui-row>
+            <ui-col style="display:flex;" align="left" vertical-align="center" span="7">
+              <ui-text style="margin:auto 0;" class="fnumber">SO180597251142</ui-text>
+            </ui-col>
+            <ui-col align="right" vertical-align="center" span="5">
+              <ui-text class="ftotal">￥1350.00</ui-text>
+            </ui-col>
+          </ui-row space="0">
+          <ui-row>
+            <ui-col align="left" vertical-align="top" span="7">
+              <ui-text class="fnumber">2018-06-11 14:21</ui-text>
+            </ui-col>
+            <ui-col vertical-align="top" align="right" span="5">
+              <ui-text class="fnumber">跑马山1#库</ui-text>
+            </ui-col>
+          </ui-row>
+        </ui-col>
+      </ui-row>
+    </ui-view>
+
+    <ui-view>
+      <ui-text block space="nbsp" style="margin-top:26px;color: #888;text-align: center;">暂无更多数据</ui-text>
+      <ui-text block space="nbsp" style="margin-top:8px;color: #bbb;text-align: center;">查询时间   2018-05-12  至  2018-06-11</ui-text>
+    </ui-view>
+
+    <ui-popup ui:model="{{ showSearch }}" height="100%">
+      <ui-view class="popup1">
+        <ui-button bindtap="handleSearch" plain type="primary">关闭</ui-button>
+      </ui-view>
+    </ui-popup>
   </ui-page>
 </template>
 
 <script>
 export default {
   config: {
-    navigationBarTitleText: "销售出库单查询"
+    navigationBarTitleText: "销售出库单",
+    navigationStyle: 'custom',
+    navigationBarTextStyle:"black"
   },
-  data() {
-    return {}
+  data () {
+    return {
+      showSearch: false,
+      contentshow2: 0,
+      tabContent: ['所有', '已售', '暂存', '退货']
+    }
   },
-  methods: {},
+  methods: {
+    changeTab2 (index) {
+      this.contentshow2 = index
+    },
+    handleSearch() {
+      console.log('点击了handleSearch')
+      this.showSearch = !!!this.showSearch
+    }
+  },
   mounted() {}
 }
 </script>
 
 <style lang="less">
+  .item-content {
+    height: 90px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 8px 0;
 
+    .fnumber {
+      color: #aaa;
+      font-size: 13px;
+      display: flex;
+
+      span {
+        margin: auto;
+      }
+    }
+
+    .ftotal {
+      color: darkorange;
+    }
+  }
+  .column-content {
+    height: 26px;
+    line-height: 26px;
+    width: 100%;
+    background-color: #eee;
+  }
 </style>
