@@ -1,0 +1,53 @@
+<!--销售单明细-->
+<template>
+  <ui-page>
+    <ui-row-list>
+      <ui-row height="50" border-indent>
+        <ui-col class="text-gray" space-left="10" width="50" vertical-align="middle" align="center">
+          状态
+        </ui-col>
+        <ui-col space-left="100" class="text" >
+          已审核
+        </ui-col>
+      </ui-row>
+      <ui-row height="50">
+        <ui-col class="text-gray"  space-left="10" width="50" vertical-align="middle" align="center">
+          客户
+        </ui-col>
+        <ui-col space-left="100" class="text" >
+          大理宾川葡萄基地一分部
+        </ui-col>
+      </ui-row>
+      <ui-row height="50">
+        <ui-col class="text-gray"  space-left="10" width="50" vertical-align="middle" align="center">
+          仓库
+        </ui-col>
+        <ui-col space-left="100" class="text" >
+          跑马山一库
+        </ui-col>
+      </ui-row>
+    </ui-row-list>
+  </ui-page>
+</template>
+
+<script>
+export default {
+  config: {
+    navigationBarTitleText: "销售单明细"
+  },
+  data() {
+    return {}
+  },
+  methods: {},
+  mounted() {}
+}
+</script>
+
+<style lang="less">
+.text {
+  line-height: 50px;
+}
+.text-gray {
+  color: #888;
+}
+</style>

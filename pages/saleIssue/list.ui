@@ -12,7 +12,7 @@
         <ui-col vertical-align="middle" align="center">
           <ui-view class="nav_title">销售出库单</ui-view>
         </ui-col>
-        <ui-col bindtap="handleAdd" vertical-align="middle" align="center" width="35">
+        <ui-col vertical-align="middle" align="center" width="35">
           <ui-navigator url="/pages/saleIssues">
             <ui-icon type="plus" size="22"></ui-icon>
           </ui-navigator>
