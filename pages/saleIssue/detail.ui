@@ -1,7 +1,7 @@
 <!--销售单明细-->
 <template>
-  <ui-page>
-    <ui-row-list>
+  <ui-page style="background-color: #eee;">
+    <ui-row-list style="background-color: #fff;border-bottom: 1px solid #ccc;">
       <ui-row height="50" border-indent>
         <ui-col class="text-gray" space-left="10" width="50" vertical-align="middle" align="center">
           状态
@@ -10,7 +10,7 @@
           已审核
         </ui-col>
       </ui-row>
-      <ui-row height="50">
+      <ui-row height="50" border-indent>
         <ui-col class="text-gray"  space-left="10" width="50" vertical-align="middle" align="center">
           客户
         </ui-col>
@@ -27,12 +27,169 @@
         </ui-col>
       </ui-row>
     </ui-row-list>
+
+    <ui-view style="background-color: #fff;margin-top: 12px;">
+      <ui-row-list>
+        <ui-row height="30" border-indent>
+          <ui-col space-left="15" vertical-align="middle" span="7">
+            <ui-text class="text-gray">商品明细</ui-text>
+          </ui-col>
+          <ui-col vertical-align="middle" span="2">
+            <ui-text>合计：2 </ui-text>
+          </ui-col>
+          <ui-col vertical-align="middle" span="3">
+            <ui-text style="font-size:18px;color: red;">￥1298.00</ui-text>
+          </ui-col>
+        </ui-row>
+
+        <ui-row style="border-bottom: 1px solied #eee;">
+          <ui-col span="12">
+            <ui-row height="36" style="border-bottom: 1px dashed #eee;">
+              <ui-col vertical-align="middle" space-left="15" align="center" span="12">
+                <ui-text>银法利 (1010005)</ui-text>
+              </ui-col>
+            </ui-row>
+            <ui-row height="24">
+              <ui-col vertical-align="middle" align="center" span="6">
+                25毫升 * 4支
+              </ui-col>
+              <ui-col vertical-align="middle" align="center" span="3">
+                ￥32.00
+              </ui-col>
+              <ui-col vertical-align="middle" align="center" span="3">
+                4
+              </ui-col>
+            </ui-row>
+          </ui-col>
+        </ui-row>
+
+        <ui-row style="border-bottom: 1px solied #eee;">
+          <ui-col span="12">
+            <ui-row height="36" style="border-bottom: 1px dashed #eee;">
+              <ui-col vertical-align="middle" space-left="15" align="center" span="12">
+                <ui-text>敌杀死 (1030103)</ui-text>
+              </ui-col>
+            </ui-row>
+            <ui-row height="24">
+              <ui-col vertical-align="middle" align="center" span="6">
+                50毫升 * 10瓶子
+              </ui-col>
+              <ui-col vertical-align="middle" align="center" span="3">
+                ￥18.00
+              </ui-col>
+              <ui-col vertical-align="middle" align="center" span="3">
+                12
+              </ui-col>
+            </ui-row>
+          </ui-col>
+        </ui-row>
+
+        <ui-row style="border-bottom: 1px solied #eee;">
+          <ui-col span="12">
+            <ui-row height="36" style="border-bottom: 1px dashed #eee;">
+              <ui-col vertical-align="middle" space-left="15" align="center" span="12">
+                <ui-text>垄哥 (1040221)</ui-text>
+              </ui-col>
+            </ui-row>
+            <ui-row height="24">
+              <ui-col vertical-align="middle" align="center" span="6">
+                10克 * 30袋
+              </ui-col>
+              <ui-col vertical-align="middle" align="center" span="3">
+                ￥15.00
+              </ui-col>
+              <ui-col vertical-align="middle" align="center" span="3">
+                30
+              </ui-col>
+            </ui-row>
+          </ui-col>
+        </ui-row>
+      </ui-row-list>
+    </ui-view>
+
+    <ui-view style="background-color: #fff;margin-top: 12px;margin-bottom: 30px;">
+      <ui-row-list style="background-color: #fff;border-bottom: 1px solid #ccc;">
+        <ui-row height="50" border-indent>
+          <ui-col class="text-gray" space-left="16" width="90" vertical-align="middle" align="left">
+            收款金额
+          </ui-col>
+          <ui-col space-left="50" class="text" >
+            ￥1298.00 (默认账户)
+          </ui-col>
+        </ui-row>
+        <ui-row height="50" border-indent>
+          <ui-col class="text-gray" space-left="16" width="90" vertical-align="middle" align="left">
+            客户欠款
+          </ui-col>
+          <ui-col space-left="50" class="text" >
+            <ui-row>
+              <ui-col>
+                ￥0.00
+              </ui-col>
+              <ui-col height="45" vertical-align="middle" space-right="20" align="right">
+                <ui-button type="primary" size="mini" full-width="{{false}}" plain="true">客户对账</ui-button>
+              </ui-col>
+            </ui-row>
+          </ui-col>
+        </ui-row>
+        <ui-row height="50">
+          <ui-col class="text-gray" space-left="16" width="90" vertical-align="middle" align="left">
+            单号
+          </ui-col>
+          <ui-col space-left="50" class="text" >
+            SO201806140102
+          </ui-col>
+        </ui-row>
+        <ui-row height="50">
+          <ui-col class="text-gray" space-left="16" width="90" vertical-align="middle" align="left">
+            销售员
+          </ui-col>
+          <ui-col space-left="50" class="text" >
+            张三三
+          </ui-col>
+        </ui-row>
+        <ui-row height="50">
+          <ui-col class="text-gray" space-left="16" width="90" vertical-align="middle" align="left">
+            出库员
+          </ui-col>
+          <ui-col space-left="50" class="text" >
+            李思思
+          </ui-col>
+        </ui-row>
+        <ui-row height="50">
+          <ui-col class="text-gray" space-left="16" width="90" vertical-align="middle" align="left">
+            业务日期
+          </ui-col>
+          <ui-col space-left="50" class="text" >
+            2018-06-14 09:31
+          </ui-col>
+        </ui-row>
+        <ui-row height="50">
+          <ui-col class="text-gray" space-left="16" width="90" vertical-align="middle" align="left">
+            发货方式
+          </ui-col>
+          <ui-col space-left="50" class="text" >
+            物流 (单号: SF20182032832)
+          </ui-col>
+        </ui-row>
+        <ui-row height="40">
+          <ui-col span="12" vertical-align="middle" align="right" space-right="20">
+            <ui-view>
+              <ui-button  type="primary" size="mini" full-width="{{false}}" plain="true">发货提醒</ui-button>
+              <ui-button  type="primary" size="mini" full-width="{{false}}" plain="true">点击查看物流</ui-button>
+            </ui-view>
+          </ui-col>
+        </ui-row>
+      </ui-row-list>
+    </ui-view>
   </ui-page>
 </template>
 
 <script>
 export default {
   config: {
+    navigationBarBackgroundColor: "#3399FF",
+    navigationBarTextColor: "#fff",
     navigationBarTitleText: "销售单明细"
   },
   data() {
