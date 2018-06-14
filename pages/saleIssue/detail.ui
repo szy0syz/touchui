@@ -1,6 +1,32 @@
 <!--销售单明细-->
 <template>
   <ui-page style="background-color: #eee;">
+    <ui-nav-bar slot="nav-bar" custom-style="{{ {'border-bottom':'1px solid rgba(231, 231, 231, 0.6)','background-color':'#3399FF'} }}">
+      <ui-row height="46">
+        <ui-col vertical-align="middle" align="center" width="70">
+          <ui-view class="nav_left">
+              <ui-icon type="arrow-left" size="16" color="#2DBAAA"></ui-icon>返回
+          </ui-view>
+        </ui-col>
+        <ui-col vertical-align="middle" align="center">
+          <ui-view class="nav_title">销售出库单</ui-view>
+        </ui-col>
+        <ui-col vertical-align="middle" align="center" width="35">
+          <ui-navigator url="/pages/saleIssues">
+            <ui-icon type="share" size="22"></ui-icon>
+          </ui-navigator>
+        </ui-col>
+        <ui-col vertical-align="middle" align="center" width="35">
+          <ui-navigator url="/pages/saleIssues">
+            <ui-icon type="plus" size="22"></ui-icon>
+          </ui-navigator>
+        </ui-col>
+        <ui-col vertical-align="middle" align="center" width="35">
+            <ui-icon type="more" size="22"></ui-icon>
+        </ui-col>
+      </ui-row>
+    </ui-nav-bar>
+
     <ui-row-list style="background-color: #fff;border-bottom: 1px solid #ccc;">
       <ui-row height="50" border-indent>
         <ui-col class="text-gray" space-left="10" width="50" vertical-align="middle" align="center">
@@ -188,6 +214,7 @@
 <script>
 export default {
   config: {
+    navigationStyle: 'custom',
     navigationBarBackgroundColor: "#3399FF",
     navigationBarTextColor: "#fff",
     navigationBarTitleText: "销售单明细"
