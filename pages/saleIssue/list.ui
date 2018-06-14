@@ -17,12 +17,12 @@
             <ui-icon type="plus" size="22"></ui-icon>
           </ui-navigator>
         </ui-col>
-        <ui-col bindtap="handleSearch" vertical-align="middle" align="center" width="35">
+        <ui-col bindtap="toggleSearchForm" vertical-align="middle" align="center" width="35">
             <ui-icon type="search" size="22"></ui-icon>
         </ui-col>
       </ui-row>
     </ui-nav-bar>
-    <ui-segment style="margin: 6px;" bindchange="changeTab2">
+    <ui-segment style="background-color: #fff;margin: 6px;" bindchange="changeTab2">
       <ui-segment-item>
         所有
       </ui-segment-item>
@@ -37,7 +37,6 @@
       </ui-segment-item>
     </ui-segment>
     <ui-view class="tabContent">
-      <!-- {{tabContent[contentshow2]}} -->
       
       <ui-row class="item-content" space-bottom="5">
         <ui-col style="display: flex;" span="2" space-right="5">
@@ -108,58 +107,76 @@
 
     <ui-popup ui:model="{{ showSearch }}" class="searchForm" max-heigh="100%" height="100%">
       <ui-row height="40" style="background-color: #3399ff;color:#fff;" space-top="10">
-        <ui-col vertical-align="middle" align="center" align="center" span="12">
-          销售出库单查询
+        <ui-col space-left="10" vertical-align="middle" align="left" align="center">
+          销售单查询
+        </ui-col>
+        <ui-col bindtap="toggleSearchForm" align="left" height="40" vertical-align="middle" width="20">
+          X
         </ui-col>
       </ui-row>
       
-      <ui-row height="38" class="search-item" space-top="10">
-        <ui-col vertical-align="middle" align="left" space-left="20" span="5">
-          <ui-text>客户</ui-text>
-        </ui-col>
-        <ui-col span="7">
-          <ui-input placeholder="请选择客户"></ui-input>
-        </ui-col>
-      </ui-row>
+      <ui-view class="base-group">
+        <ui-row height="38" class="search-item" space-top="10">
+          <ui-col vertical-align="middle" align="left" space-left="20" span="5">
+            <ui-text>客户</ui-text>
+          </ui-col>
+          <ui-col vertical-align="middle"  span="7">
+            <ui-input placeholder="请选择客户"></ui-input>
+          </ui-col>
+        </ui-row>
 
-      <ui-row height="38" class="search-item" space-top="10">
-        <ui-col vertical-align="middle" align="left" space-left="20" span="5">
-          <ui-text>单号</ui-text>
-        </ui-col>
-        <ui-col span="7">
-          <ui-input placeholder="请输入单号"></ui-input>
-        </ui-col>
-      </ui-row>
+        <ui-row height="38" class="search-item">
+          <ui-col vertical-align="middle" align="left" space-left="20" span="5">
+            <ui-text>单号</ui-text>
+          </ui-col>
+          <ui-col height="38" vertical-align="middle" span="7">
+            <ui-input placeholder="请输入单号"></ui-input>
+          </ui-col>
+        </ui-row>
 
-      <ui-row height="38" class="search-item" space-top="10">
-        <ui-col vertical-align="middle" align="left" space-left="20" span="5">
-          <ui-text>制单人</ui-text>
-        </ui-col>
-        <ui-col span="7">
-          <ui-input placeholder="请选择制单人"></ui-input>
-        </ui-col>
-      </ui-row>
+        <ui-row height="38" class="search-item">
+          <ui-col vertical-align="middle" align="left" space-left="20" span="5">
+            <ui-text>制单人</ui-text>
+          </ui-col>
+          <ui-col height="38" vertical-align="middle" span="7">
+            <ui-input placeholder="请选择制单人"></ui-input>
+          </ui-col>
+        </ui-row>
+      </ui-view>
 
-      <ui-row height="38" class="search-item" space-top="20">
-        <ui-col vertical-align="middle" align="left" space-left="20" span="5">
-          <ui-text>开始日期</ui-text>
-        </ui-col>
-        <ui-col span="7">
-          <ui-input value="{{ '2018-06-01' }}" placeholder="请选择客户"></ui-input>
-        </ui-col>
-      </ui-row>
+      <ui-view class="base-group">
+        <ui-row height="38" class="search-item" space-top="20">
+          <ui-col  vertical-align="middle" align="left" space-left="20" span="5">
+            <ui-text>开始日期</ui-text>
+          </ui-col>
+          <ui-col height="38" vertical-align="middle" span="7">
+            <ui-input value="{{ '2018-06-01' }}" placeholder="请选择客户"></ui-input>
+          </ui-col>
+        </ui-row>
 
-      <ui-row height="38" class="search-item" space-top="20">
-        <ui-col vertical-align="middle" align="left" space-left="20" span="5">
-          <ui-text>结束日期</ui-text>
-        </ui-col>
-        <ui-col span="7">
-          <ui-input value="{{ '2018-06-12' }}" placeholder="请选择客户"></ui-input>
-        </ui-col>
-      </ui-row>
+        <ui-row height="38" class="search-item">
+          <ui-col height="38" vertical-align="middle" align="left" space-left="20" span="5">
+            <ui-text>结束日期</ui-text>
+          </ui-col>
+          <ui-col height="38" vertical-align="middle" span="7">
+            <ui-input value="{{ '2018-06-12' }}" placeholder="请选择客户"></ui-input>
+          </ui-col>
+        </ui-row>
+      </ui-view>
+
+      <ui-view class="base-group">
+        <ui-row height="38" class="search-item">
+          <ui-col height="38" vertical-align="middle" align="left" space-left="20" span="5">
+            <ui-text>显示仓库</ui-text>
+          </ui-col>
+          <ui-col height="38" vertical-align="middle" span="7">
+            <ui-switch ui:model="{{ 'true' }}"></ui-switch>
+          </ui-col>
+        </ui-row>
+      </ui-view>
 
       <ui-view style="margin-top: 20px;padding: 0 8px;">
-        <ui-button  bindtap="handleSearch" type="primary">搜 索</ui-button>
+        <ui-button  bindtap="toggleSearchform" type="primary">搜 索</ui-button>
       </ui-view>
     </ui-popup>
   </ui-page>
@@ -170,7 +187,8 @@ export default {
   config: {
     navigationBarTitleText: "销售出库单",
     navigationStyle: 'custom',
-    navigationBarTextStyle:"black"
+    navigationBarTextStyle:"black",
+    backgroundColor: "#eeeeee"
   },
   data () {
     return {
@@ -183,7 +201,7 @@ export default {
     changeTab2 (index) {
       this.contentshow2 = index
     },
-    handleSearch() {
+    toggleSearchForm() {
       console.log('点击了handleSearch')
       this.showSearch = !!!this.showSearch
     }
@@ -198,6 +216,7 @@ export default {
     border-top: 1px solid #ccc;
     border-bottom: 1px solid #ccc;
     padding: 8px 0;
+    background-color: #fff;
 
     .fnumber {
       color: #aaa;
@@ -228,7 +247,20 @@ export default {
     border-bottom: 1px solid #ddd;
   }
 
-  // .searchForm{
-  //   // background-color: #eee;
-  // }
+  .searchForm{
+    background-color: #eee;
+  }
+
+  .tabContent {
+    background-color: #fff;
+  }
+
+  .base-group {
+    background-color: #fff;
+    margin-bottom: 12px;
+
+    input {
+      height: 28px;
+    }
+  }
 </style>

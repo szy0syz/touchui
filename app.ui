@@ -12,7 +12,8 @@ export default {
       "pages/mydate",
       "pages/saleIssue/list",
       "pages/saleIssue/search",
-      "pages/saleIssue/detail"
+      "pages/saleIssue/detail",
+      "pages/saleIssue/add"
     ],
     "theme": {
       "theme-color": "#3399ff"

@@ -51,7 +51,7 @@
         </ui-col>
         <ui-col width="20"></ui-col>
         <ui-col vertical-align="middle" align="center" class="right-item" space="20">
-          <ui-navigator url="/pages/saleIssues">
+          <ui-navigator url="/pages/saleIssue/list">
             <ui-view class="title">销售出库单</ui-view>
             <ui-text class="small-title">开具出库单</ui-text>
           </ui-navigator>
