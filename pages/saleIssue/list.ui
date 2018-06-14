@@ -7,8 +7,12 @@
           <ui-view class="nav_left">
               <ui-icon type="arrow-left" size="16" color="#2DBAAA"></ui-icon>返回
           </ui-view>
-
         </ui-col>
+
+
+
+
+
         <ui-col vertical-align="middle" align="center">
           <ui-view class="nav_title">销售出库单</ui-view>
         </ui-col>
@@ -170,7 +174,9 @@
             <ui-text>显示仓库</ui-text>
           </ui-col>
           <ui-col height="38" vertical-align="middle" span="7">
-            <ui-switch ui:model="{{ 'true' }}"></ui-switch>
+            <ui-view>
+              <ui-switch ui:model="{{ isShowHoure }}"></ui-switch>
+            </ui-view>
           </ui-col>
         </ui-row>
       </ui-view>
@@ -192,6 +198,7 @@ export default {
   },
   data () {
     return {
+      isShowHoure: true,
       showSearch: false,
       contentshow2: 0,
       tabContent: ['所有', '已售', '暂存', '退货']
