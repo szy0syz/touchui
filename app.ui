@@ -43,7 +43,7 @@ export default {
         },
         {
           // pagePath: 'pages/componentDemo/tabBar5-3',
-          // pagePath: 'pages/user',
+          pagePath: 'pages/user',
           iconName: 'plus',
           text: '新 增'
         },
