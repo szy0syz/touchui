@@ -278,7 +278,7 @@
     <ui-row-list style="background-color: #fff;margin-top:10px;">
       <ui-row height="42">
         <ui-col space-left="2" width="40" vertical-align="middle" align="center">
-            <ui-icon color="red" type="currency02" size="20" color="#545454"></ui-icon>
+            <ui-icon color="red" type="home-icon-04" size="20" color="#545454"></ui-icon>
         </ui-col>
         <ui-col class="layout1" vertical-align="left" class="text" >
           <ui-text style="margin-right: 8px;">滞/热销商品</ui-text>
