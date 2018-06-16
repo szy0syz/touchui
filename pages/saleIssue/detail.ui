@@ -4,7 +4,7 @@
     <ui-nav-bar slot="nav-bar" custom-style="{{ {'border-bottom':'1px solid rgba(231, 231, 231, 0.6)','background-color':'#3399FF'} }}">
       <ui-row height="46">
         <ui-col vertical-align="middle" align="center" width="70">
-          <ui-view class="nav_left">
+          <ui-view bindtap="navigateBack" class="nav_left">
               <ui-icon type="arrow-left" size="16" color="#2DBAAA"></ui-icon>返回
           </ui-view>
         </ui-col>
@@ -222,7 +222,11 @@ export default {
   data() {
     return {}
   },
-  methods: {},
+  methods: {
+    navigateBack () {
+      ui.navigateBack()
+    }
+  },
   mounted() {}
 }
 </script>
