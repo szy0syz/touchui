@@ -13,7 +13,8 @@ export default {
       'pages/saleIssue/list',
       'pages/saleIssue/search',
       'pages/saleIssue/detail',
-      'pages/saleIssue/add'
+      'pages/saleIssue/add',
+      "pages/stat"
     ],
     theme: {
       'theme-color': '#3399ff'
@@ -37,7 +38,7 @@ export default {
           text: '首 页'
         },
         {
-          pagePath: 'pages/user',
+          pagePath: 'pages/saleIssue/list',
           iconName: 'currency02',
           text: '销 售'
         },
@@ -48,7 +49,7 @@ export default {
           text: '新 增'
         },
         {
-          pagePath: 'pages/user',
+          pagePath: 'pages/stat',
           iconName: 'home-graphical',
           text: '统 计'
         },
@@ -189,20 +190,25 @@ export default {
     },
     // tabBar示例用到，底部标签栏切换前事件处理
     handleTabBeforeChange({ id, index, next }) {
-      if (this.canClick) {
-        this.showPopicon = true
-        this.canClick = false
-        this.fixedzindex = 'z-index:701'
-        this.tabbaricon = 'block'
-        this.togglestyle = 'openstyle'
-        this.hideOnTap = false
-        const that = this
-        setTimeout(() => {
-          that.canClick = true
-          that.hideOnTap = true
-        }, 700)
+      if (id === 'mainTabBar' && index === 2) {
+        if (this.canClick) {
+          this.showPopicon = true
+          this.canClick = false
+          this.fixedzindex = 'z-index:701'
+          this.tabbaricon = 'block'
+          this.togglestyle = 'openstyle'
+          this.hideOnTap = false
+          const that = this
+          setTimeout(() => {
+            that.canClick = true
+            that.hideOnTap = true
+          }, 700)
+        } else {
+          return false
+        }
+      } else {
+        next()
       }
-      // next()
     },
     handleNavIconTap() {
       this.showSlideMenu = !this.showSlideMenu

@@ -1,0 +1,181 @@
+<!--统计分析-->
+<template>
+  <ui-page>
+    <ui-row-list style="background-color: #fff; margin-bottom: 10px; border-bottom: #000;">
+      <ui-row height="42" space-bottom="4">
+        <ui-col space-left="2" width="40" vertical-align="middle" align="center">
+            <ui-icon color="#3399ff" type="currency02" size="20" color="#545454"></ui-icon>
+        </ui-col>
+        <ui-col vertical-align="middle" class="text" >
+          今日结余
+        </ui-col>
+        <ui-col class="desc-text" width="200" vertical-align="middle" align="right" space-right="20">
+          <ui-row>
+            <ui-col vertical-align="middle" width="60" span="6">
+              收支明细账
+            </ui-col>
+            <ui-col align="center" vertical-align="middle" span="6">
+              <ui-icon type="arrow-right"></ui-icon>
+            </ui-col>
+          </ui-row>
+        </ui-col>
+      </ui-row>
+
+      <ui-row height="60" style="border-bottom: #aaa;">
+        <ui-col vertical-align="middle" span="6">
+          <ui-view class="item-box">
+            <ui-row height="60">
+              <ui-col style="margin-top: -8px;">
+                <ui-row>
+                  <ui-col align="left" space-left="10" width="40">
+                    <ui-icon color="orange" style="margin-top: 3px;" type="home-icon-01" size="20"></ui-icon>
+                  </ui-col>
+                  <ui-col vertical-align="bottom" align="left">
+                    <ui-text block>客户对账</ui-text>
+                  </ui-col>
+                </ui-row>
+                <ui-row height="12">
+                  <ui-col vertical-align="middle" span="12" space-left="40" align="left">
+                    <ui-text class="desc-text">欠款对账、收款月结</ui-text>
+                  </ui-col>
+                </ui-row>
+              </ui-col>
+            </ui-row>
+          </ui-view>
+        </ui-col>
+        <ui-col vertical-align="middle" span="6">
+          <ui-view class="item-box">
+            <ui-row height="60">
+              <ui-col style="margin-top: -8px;">
+                <ui-row>
+                  <ui-col align="left" space-left="10" width="40">
+                    <ui-icon color="blue" style="margin-top: 3px;" type="home-icon-01" size="20"></ui-icon>
+                  </ui-col>
+                  <ui-col vertical-align="bottom" align="left">
+                    <ui-text block>供应商对账</ui-text>
+                  </ui-col>
+                </ui-row>
+                <ui-row height="12">
+                  <ui-col vertical-align="middle" span="12" space-left="40" align="left">
+                    <ui-text class="desc-text">对账、付款</ui-text>
+                  </ui-col>
+                </ui-row>
+              </ui-col>
+            </ui-row>
+          </ui-view>
+        </ui-col>
+      </ui-row>
+
+      <ui-row height="60" style="border-bottom: #aaa;">
+        <ui-col vertical-align="middle" span="6">
+          <ui-view class="item-box">
+            <ui-row height="60">
+              <ui-col style="margin-top: -8px;">
+                <ui-row>
+                  <ui-col align="left" space-left="10" width="40">
+                    <ui-icon color="green" style="margin-top: 3px;" type="statistics" size="20"></ui-icon>
+                  </ui-col>
+                  <ui-col vertical-align="bottom" align="left">
+                    <ui-text block>经营状况</ui-text>
+                  </ui-col>
+                </ui-row>
+                <ui-row height="12">
+                  <ui-col vertical-align="middle" span="12" space-left="40" align="left">
+                    <ui-text class="desc-text">每天20点自动推送</ui-text>
+                  </ui-col>
+                </ui-row>
+              </ui-col>
+            </ui-row>
+          </ui-view>
+        </ui-col>
+        <ui-col vertical-align="middle" span="6">
+          <ui-view class="item-box">
+            <ui-row height="60">
+              <ui-col style="margin-top: -8px;">
+                <ui-row>
+                  <ui-col align="left" space-left="10" width="40">
+                    <ui-icon color="red" style="margin-top: 3px;" type="home-graphical" size="20"></ui-icon>
+                  </ui-col>
+                  <ui-col vertical-align="bottom" align="left">
+                    <ui-text block>统计图表</ui-text>
+                  </ui-col>
+                </ui-row>
+                <ui-row height="12">
+                  <ui-col vertical-align="middle" span="12" space-left="40" align="left">
+                    <ui-text class="desc-text">销售、毛利、库存结余</ui-text>
+                  </ui-col>
+                </ui-row>
+              </ui-col>
+            </ui-row>
+          </ui-view>
+        </ui-col>
+      </ui-row>
+    </ui-row-list>
+
+    <ui-row-list style="background-color: #fff; margin-bottom: 10px;">
+      <ui-row height="60">
+        <ui-col>
+          <ui-row>
+            <ui-col align="left" space-left="10" width="40">
+              <ui-icon style="margin-top: 3px;" type="home-icon-01" size="20"></ui-icon>
+            </ui-col>
+            <ui-col vertical-align="bottom" align="left">
+              <ui-text block>销售报表</ui-text>
+            </ui-col>
+          </ui-row>
+          <ui-row height="12">
+            <ui-col vertical-align="middle" span="6" space-left="40" align="left">
+              <ui-text class="desc-text">今日销售  0 笔</ui-text>
+            </ui-col>
+            <ui-col vertical-align="middle" span="6" align="left" space-right="50" space-left="15" align="left">
+              <ui-view class="sale-total">
+                <ui-text class="desc-text">销售金额 </ui-text>
+                <ui-text style="margin-left: 10px;">￥0.00</ui-text>
+              </ui-view>
+            </ui-col>
+          </ui-row>
+        </ui-col>
+      </ui-row>
+
+      <ui-row>
+        <ui-col>
+          2
+        </ui-col>
+      </ui-row>
+    </ui-row-list>
+  </ui-page>
+</template>
+
+<script>
+export default {
+  config: {
+    navigationBarTitleText: '统计分析',
+    navigationBarTextStyle: 'black',
+    backgroundColor: '#eee'
+  },
+  data() {
+    return {}
+  },
+  methods: {},
+  mounted() {}
+}
+</script>
+
+<style lang="less">
+.item-box {
+  height: 80%;
+  &:first-child {
+    border-right: 1px solid #eee;
+  }
+}
+
+.desc-text {
+  font-size: x-small;
+  color: #999;
+}
+.sale-total {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+</style>
