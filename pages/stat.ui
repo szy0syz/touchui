@@ -4,10 +4,11 @@
     <ui-row-list style="background-color: #fff; margin-bottom: 10px; border-bottom: #000;">
       <ui-row height="42" space-bottom="4">
         <ui-col space-left="2" width="40" vertical-align="middle" align="center">
-            <ui-icon color="#3399ff" type="currency02" size="20" color="#545454"></ui-icon>
+            <ui-icon color="red" type="currency02" size="20" color="#545454"></ui-icon>
         </ui-col>
-        <ui-col vertical-align="middle" class="text" >
-          今日结余
+        <ui-col class="layout1" vertical-align="left" class="text" >
+          <ui-text style="margin-right: 8px;">今日结余</ui-text>
+          <ui-icon style="padding-top:4px;" color="#3399ff" size="13" type="magnifier"></ui-icon>
         </ui-col>
         <ui-col class="desc-text" width="200" vertical-align="middle" align="right" space-right="20">
           <ui-row>
@@ -177,5 +178,13 @@ export default {
   display: flex;
   flex-direction: row;
   align-items: center;
+}
+
+.layout1 {
+  & > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
 }
 </style>
