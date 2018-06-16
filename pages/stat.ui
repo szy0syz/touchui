@@ -8,7 +8,7 @@
         </ui-col>
         <ui-col class="layout1" vertical-align="left" class="text" >
           <ui-text style="margin-right: 8px;">今日结余</ui-text>
-          <ui-icon style="padding-top:4px;" color="#3399ff" size="13" type="magnifier"></ui-icon>
+          <ui-icon style="padding-top:3px;" color="#3399ff" size="15" type="yanjing"></ui-icon>
         </ui-col>
         <ui-col class="desc-text" width="200" vertical-align="middle" align="right" space-right="20">
           <ui-row>
@@ -74,7 +74,7 @@
               <ui-col style="margin-top: -8px;">
                 <ui-row>
                   <ui-col align="left" space-left="10" width="40">
-                    <ui-icon color="green" style="margin-top: 3px;" type="statistics" size="20"></ui-icon>
+                    <ui-icon color="green" style="margin-top: 3px;" type="yuebao" size="20"></ui-icon>
                   </ui-col>
                   <ui-col vertical-align="bottom" align="left">
                     <ui-text block>经营状况</ui-text>
@@ -118,7 +118,7 @@
         <ui-col>
           <ui-row>
             <ui-col align="left" space-left="10" width="40">
-              <ui-icon style="margin-top: 3px;" type="home-icon-01" size="20"></ui-icon>
+              <ui-icon color="red" style="margin-top: 3px;" type="jizhang" size="20"></ui-icon>
             </ui-col>
             <ui-col vertical-align="bottom" align="left">
               <ui-text block>销售报表</ui-text>
@@ -138,9 +138,161 @@
         </ui-col>
       </ui-row>
 
-      <ui-row>
-        <ui-col>
-          2
+      <ui-row height="60" style="border-bottom: #aaa;">
+        <ui-col vertical-align="middle" span="6">
+          <ui-view class="item-box">
+            <ui-row height="60">
+              <ui-col style="margin-top: -8px;">
+                <ui-row>
+                  <ui-col align="left" space-left="10" width="40">
+                    <ui-icon color="orange" style="margin-top: 3px;" type="statistics" size="20"></ui-icon>
+                  </ui-col>
+                  <ui-col vertical-align="bottom" align="left">
+                    <ui-text block>采购报表</ui-text>
+                  </ui-col>
+                </ui-row>
+                <ui-row height="12">
+                  <ui-col vertical-align="middle" span="12" space-left="40" align="left">
+                    <ui-text class="desc-text">进货统计</ui-text>
+                  </ui-col>
+                </ui-row>
+              </ui-col>
+            </ui-row>
+          </ui-view>
+        </ui-col>
+        <ui-col vertical-align="middle" span="6">
+          <ui-view class="item-box">
+            <ui-row height="60">
+              <ui-col style="margin-top: -8px;">
+                <ui-row>
+                  <ui-col align="left" space-left="10" width="40">
+                    <ui-icon color="blue" style="margin-top: 3px;" type="statistics" size="20"></ui-icon>
+                  </ui-col>
+                  <ui-col vertical-align="bottom" align="left">
+                    <ui-text block>盘点盘表</ui-text>
+                  </ui-col>
+                </ui-row>
+                <ui-row height="12">
+                  <ui-col vertical-align="middle" span="12" space-left="40" align="left">
+                    <ui-text class="desc-text">盘点统计</ui-text>
+                  </ui-col>
+                </ui-row>
+              </ui-col>
+            </ui-row>
+          </ui-view>
+        </ui-col>
+      </ui-row>
+
+      <ui-row height="60" style="border-bottom: #aaa;">
+        <ui-col vertical-align="middle" span="6">
+          <ui-view class="item-box">
+            <ui-row height="60">
+              <ui-col style="margin-top: -8px;">
+                <ui-row>
+                  <ui-col align="left" space-left="10" width="40">
+                    <ui-icon color="#FF3366" style="margin-top: 3px;" type="statistics" size="20"></ui-icon>
+                  </ui-col>
+                  <ui-col vertical-align="bottom" align="left">
+                    <ui-text block>调拨报表</ui-text>
+                  </ui-col>
+                </ui-row>
+                <ui-row height="12">
+                  <ui-col vertical-align="middle" span="12" space-left="40" align="left">
+                    <ui-text class="desc-text">调货统计</ui-text>
+                  </ui-col>
+                </ui-row>
+              </ui-col>
+            </ui-row>
+          </ui-view>
+        </ui-col>
+        <ui-col vertical-align="middle" span="6">
+          <ui-view class="item-box">
+            <ui-row height="60">
+              <ui-col style="margin-top: -8px;">
+                <ui-row>
+                  <ui-col align="left" space-left="10" width="40">
+                    <ui-icon color="#FF6600" style="margin-top: 3px;" type="statistics" size="20"></ui-icon>
+                  </ui-col>
+                  <ui-col vertical-align="bottom" align="left">
+                    <ui-text block>进销对比</ui-text>
+                  </ui-col>
+                </ui-row>
+                <ui-row height="12">
+                  <ui-col vertical-align="middle" span="12" space-left="40" align="left">
+                    <ui-text class="desc-text">进货、销售对比</ui-text>
+                  </ui-col>
+                </ui-row>
+              </ui-col>
+            </ui-row>
+          </ui-view>
+        </ui-col>
+      </ui-row>
+
+      <ui-row height="60" style="border-bottom: #aaa;">
+        <ui-col vertical-align="middle" span="6">
+          <ui-view class="item-box">
+            <ui-row height="60">
+              <ui-col style="margin-top: -8px;">
+                <ui-row>
+                  <ui-col align="left" space-left="10" width="40">
+                    <ui-icon color="#CC3399" style="margin-top: 3px;" type="statistics" size="20"></ui-icon>
+                  </ui-col>
+                  <ui-col vertical-align="bottom" align="left">
+                    <ui-text block>收款流水</ui-text>
+                  </ui-col>
+                </ui-row>
+                <ui-row height="12">
+                  <ui-col vertical-align="middle" span="12" space-left="40" align="left">
+                    <ui-text class="desc-text">银行回执统计</ui-text>
+                  </ui-col>
+                </ui-row>
+              </ui-col>
+            </ui-row>
+          </ui-view>
+        </ui-col>
+        <ui-col vertical-align="middle" span="6">
+          <ui-view class="item-box">
+            <ui-row height="60">
+              <ui-col style="margin-top: -8px;">
+                <ui-row>
+                  <ui-col align="left" space-left="10" width="40">
+                    <ui-icon color="#CC6666" style="margin-top: 3px;" type="statistics" size="20"></ui-icon>
+                  </ui-col>
+                  <ui-col vertical-align="bottom" align="left">
+                    <ui-text block>应收报表</ui-text>
+                  </ui-col>
+                </ui-row>
+                <ui-row height="12">
+                  <ui-col vertical-align="middle" span="12" space-left="40" align="left">
+                    <ui-text class="desc-text">销售、欠款信息</ui-text>
+                  </ui-col>
+                </ui-row>
+              </ui-col>
+            </ui-row>
+          </ui-view>
+        </ui-col>
+      </ui-row>
+
+    </ui-row-list>
+
+    <ui-row-list style="background-color: #fff;margin-top:10px;">
+      <ui-row height="42">
+        <ui-col space-left="2" width="40" vertical-align="middle" align="center">
+            <ui-icon color="red" type="currency02" size="20" color="#545454"></ui-icon>
+        </ui-col>
+        <ui-col class="layout1" vertical-align="left" class="text" >
+          <ui-text style="margin-right: 8px;">滞/热销商品</ui-text>
+          <ui-icon style="padding-top:3px;" color="#3399ff" size="15" type="yanjing"></ui-icon>
+        </ui-col>
+        <ui-col class="desc-text" width="200" vertical-align="middle" align="right" space-right="20">
+          <ui-row>
+            <ui-col vertical-align="middle" width="80" span="6">
+              商品销售排行
+            </ui-col>
+            <ui-col align="center" vertical-align="middle" span="6">
+              <ui-icon type="arrow-right"></ui-icon>
+            </ui-col>
+          </ui-row>
         </ui-col>
       </ui-row>
     </ui-row-list>
