@@ -4,7 +4,7 @@
     <ui-row-list style="background-color: #fff; margin-bottom: 10px; border-bottom: #000;">
       <ui-row height="42" space-bottom="4">
         <ui-col space-left="2" width="40" vertical-align="middle" align="center">
-            <ui-icon color="red" type="currency02" size="20" color="#545454"></ui-icon>
+            <ui-icon color="red" type="zhuanzhang" size="20" color="#545454"></ui-icon>
         </ui-col>
         <ui-col class="layout1" vertical-align="left" class="text" >
           <ui-text style="margin-right: 8px;">今日结余</ui-text>
@@ -118,7 +118,7 @@
         <ui-col>
           <ui-row>
             <ui-col align="left" space-left="10" width="40">
-              <ui-icon color="red" style="margin-top: 3px;" type="jizhang" size="20"></ui-icon>
+              <ui-icon color="red" style="margin-top: 3px;" type="home-icon-03" size="20"></ui-icon>
             </ui-col>
             <ui-col vertical-align="bottom" align="left">
               <ui-text block>销售报表</ui-text>
@@ -190,7 +190,7 @@
               <ui-col style="margin-top: -8px;">
                 <ui-row>
                   <ui-col align="left" space-left="10" width="40">
-                    <ui-icon color="#FF3366" style="margin-top: 3px;" type="statistics" size="20"></ui-icon>
+                    <ui-icon color="#FF3366" style="margin-top: 3px;" type="home-icon-08" size="20"></ui-icon>
                   </ui-col>
                   <ui-col vertical-align="bottom" align="left">
                     <ui-text block>调拨报表</ui-text>
@@ -211,7 +211,7 @@
               <ui-col style="margin-top: -8px;">
                 <ui-row>
                   <ui-col align="left" space-left="10" width="40">
-                    <ui-icon color="#FF6600" style="margin-top: 3px;" type="statistics" size="20"></ui-icon>
+                    <ui-icon color="#FF6600" style="margin-top: 3px;" type="home-icon-08" size="20"></ui-icon>
                   </ui-col>
                   <ui-col vertical-align="bottom" align="left">
                     <ui-text block>进销对比</ui-text>

@@ -6,7 +6,7 @@
             <ui-icon name="ring" size="24" color="#fff"></ui-icon>
           </ui-col>
           <ui-col vertical-align="middle" align="center">
-            <ui-view class="nav_title">我的</ui-view>
+            <ui-view class="nav_title">基础信息</ui-view>
           </ui-col>
           <ui-col vertical-align="middle" align="center" width="50">
             <ui-icon name="setting" size="24" color="#fff"></ui-icon>
@@ -27,14 +27,116 @@
             ></ui-image>
           </ui-col>
           <ui-col vertical-align="middle" align="left">
-            <ui-view class="login">立即登录</ui-view>
-            <ui-view class="login_after">登录后可享受更多特权</ui-view>
+            <ui-view class="login">云农农业科技</ui-view>
+            <ui-view class="login_after">超级管理员</ui-view>
           </ui-col>
           <ui-col vertical-align="middle" align="right" width="50" space-right="15">
             <ui-icon name="arrow-right" size="18" color="#fff"></ui-icon>
           </ui-col>
         </ui-row>
-        
+      </ui-view>
+
+      <ui-view class="item_content">
+        <ui-row-list>
+          <ui-row height="50" border-indent>
+            <ui-col width="40" vertical-align="middle" align="center">
+              <ui-icon type="home-webservice" size="20" color="#FF9966"></ui-icon>
+            </ui-col>
+            <ui-col class="text" >
+              商品管理
+            </ui-col>
+            <ui-col width="40" vertical-align="middle">
+              <ui-icon type="arrow-right"></ui-icon>
+            </ui-col>
+          </ui-row>
+          <ui-row height="50">
+            <ui-col width="40" vertical-align="middle" align="center">
+              <ui-icon type="building" size="20" color="#FF0033"></ui-icon>
+            </ui-col>
+            <ui-col class="text">
+              仓库管理
+            </ui-col>
+            <ui-col width="40" vertical-align="middle">
+              <ui-icon type="arrow-right"></ui-icon>
+            </ui-col>
+          </ui-row>
+          <ui-row height="50">
+            <ui-col width="40" vertical-align="middle" align="center">
+              <ui-icon type="globe" size="20" color="#66CC00"></ui-icon>
+            </ui-col>
+            <ui-col class="text">
+              物流管理
+            </ui-col>
+            <ui-col width="40" vertical-align="middle">
+              <ui-icon type="arrow-right"></ui-icon>
+            </ui-col>
+          </ui-row>
+        </ui-row-list>
+      </ui-view>
+
+      <ui-view class="item_content">
+        <ui-row-list>
+          <ui-row height="50" border-indent>
+            <ui-col width="40" vertical-align="middle" align="center">
+              <ui-icon type="user_portrait" size="20" color="#3399ff"></ui-icon>
+            </ui-col>
+            <ui-col class="text" >
+              客户管理
+            </ui-col>
+            <ui-col width="40" vertical-align="middle">
+              <ui-icon type="arrow-right"></ui-icon>
+            </ui-col>
+          </ui-row>
+          <ui-row height="50">
+            <ui-col width="40" vertical-align="middle" align="center">
+              <ui-icon type="user_portrait" size="20" color="green"></ui-icon>
+            </ui-col>
+            <ui-col class="text">
+              供应商管理
+            </ui-col>
+            <ui-col width="40" vertical-align="middle">
+              <ui-icon type="arrow-right"></ui-icon>
+            </ui-col>
+          </ui-row>
+          <ui-row height="50">
+            <ui-col width="40" vertical-align="middle" align="center">
+              <ui-icon type="home-icon-05" size="20" color="#CC3300"></ui-icon>
+            </ui-col>
+            <ui-col class="text">
+              账户管理
+            </ui-col>
+            <ui-col width="40" vertical-align="middle">
+              <ui-icon type="arrow-right"></ui-icon>
+            </ui-col>
+          </ui-row>
+        </ui-row-list>
+      </ui-view>
+
+      <ui-view class="item_content">
+        <ui-row-list>
+          <ui-row height="50" border-indent>
+            <ui-col width="40" vertical-align="middle" align="center">
+              <ui-icon type="setting" size="20" color="#000"></ui-icon>
+            </ui-col>
+            <ui-col class="text" >
+              系统设置
+            </ui-col>
+            <ui-col width="40" vertical-align="middle">
+              <ui-icon type="arrow-right"></ui-icon>
+            </ui-col>
+          </ui-row>
+          <ui-row height="50">
+            <ui-col width="40" vertical-align="middle" align="center">
+              <ui-icon type="comment" size="20" color="#3399CC"></ui-icon>
+            </ui-col>
+            <ui-col class="text">
+              关于
+            </ui-col>
+            <ui-col width="40" vertical-align="middle">
+              <ui-icon type="arrow-right"></ui-icon>
+            </ui-col>
+          </ui-row>
+        </ui-row-list>
       </ui-view>
     </ui-page>
 </template>
@@ -76,5 +178,29 @@ export default {
     color: #fff;
     font-size: 12px;
   }
+}
+
+.user_content {
+  margin-bottom: 12px;
+}
+
+.ui-view.title{
+  background-color: #f5f5f5;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 50px;
+  padding-left: 20px;
+  // .ui-view{
+  //   font-weight: bold;
+  // }
+}
+
+.text {
+  line-height: 50px;
+}
+
+.item_content {
+  background-color: #fff;
+  margin-bottom: 12px;
 }
 </style>
