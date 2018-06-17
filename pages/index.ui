@@ -24,14 +24,14 @@
     </ui-nav-bar>
 
     <!-- 头部轮播 -->
-    <ui-ex-swiper autoplay="{{delay}}" pagination centered-slides loop space-between="5" slides-per-view="auto" class="head-swiper" binditemtap="navigateTo">
+    <!-- <ui-ex-swiper autoplay="{{delay}}" pagination centered-slides loop space-between="5" slides-per-view="auto" class="head-swiper" binditemtap="navigateTo">
       <ui-ex-swiper-item ui:for="{{items}}" ui:for-item="item" ui:for-index="index">
           <ui-image 
           src="{{ item.src }}" 
           mode="simple" 
           ></ui-image>
       </ui-ex-swiper-item>
-    </ui-ex-swiper>
+    </ui-ex-swiper> -->
 
     <ui-view class="class-wrap">
       <ui-row height="60" class="title">
@@ -222,141 +222,6 @@
     </ui-view>
 
     
-
-    <ui-view class="class-wrap">
-      <ui-row height="60" class="title">
-        <ui-col vertical-align="middle" align="left" width="20">
-          <ui-icon type="location" size="18" color="#39f"></ui-icon>
-        </ui-col>
-        <ui-col vertical-align="middle" align="left" space-left="10">
-          <ui-view>媒体</ui-view>
-        </ui-col>
-      </ui-row>
-      
-      <ui-row class="class-item2" hover-class="touchui-hover" space-bottom="20" url="/pages/home/textList" height="80">
-        <ui-col vertical-align="middle" align="center" width="120" class="left-item application_04">
-          <ui-icon type="home-text" size="50" color="#fff"></ui-icon>
-        </ui-col>
-        <ui-col vertical-align="middle" align="left" space-left="10">
-          <ui-view class="title">文本</ui-view>
-          <ui-text class="small-title">text / rich-text / tags / count-up / count-down / roller</ui-text>
-        </ui-col>
-      </ui-row>
-      <ui-row class="class-item2" hover-class="touchui-hover" space-bottom="20" url="/pages/home/mediaCompList" height="80">
-        <ui-col vertical-align="middle" align="center" width="120" class="left-item application_05">
-          <ui-icon type="photo" size="50" color="#fff"></ui-icon>
-        </ui-col>
-        <ui-col vertical-align="middle" align="left" space-left="10">
-          <ui-view class="title">图标与图片</ui-view>
-          <ui-text class="small-title">演示了icon图标使用 / 图片缩放裁剪 / 图片懒加载 / 图片预览 / 朦胧图等效果</ui-text>
-        </ui-col>
-      </ui-row>
-      <ui-row class="class-item2" hover-class="touchui-hover" space-bottom="20" url="/pages/home/mediaCompList2" height="80">
-        <ui-col vertical-align="middle" align="center" width="120" class="left-item application_06">
-          <ui-icon type="home-media" size="50" color="#fff"></ui-icon>
-        </ui-col>
-        <ui-col vertical-align="middle" align="left" space-left="10">
-          <ui-view class="title">音视频</ui-view>
-          <ui-text class="small-title">audio / video</ui-text>
-        </ui-col>
-      </ui-row>
-      
-    </ui-view>
-
-    <ui-view class="class-wrap active">
-      <ui-row height="60" class="title">
-        <ui-col vertical-align="middle" align="left" width="20">
-          <ui-icon type="location" size="18" color="#39f"></ui-icon>
-        </ui-col>
-        <ui-col vertical-align="middle" align="left" space-left="10">
-          <ui-view>图形化</ui-view>
-        </ui-col>
-      </ui-row>
-      
-      <ui-row class="class-item2" hover-class="touchui-hover" space-bottom="20" url="/pages/home/graphicalList" height="80">
-        <ui-col vertical-align="middle" align="center" width="120" class="left-item application_07">
-          <ui-icon type="collect1" size="50" color="#fff"></ui-icon>
-        </ui-col>
-        <ui-col vertical-align="middle" align="left" space-left="10">
-          <ui-view class="title">图形与交互</ui-view>
-          <ui-text class="small-title">badge / divider / star / mini-star / wave / locker / canvas</ui-text>
-        </ui-col>
-      </ui-row>
-      <ui-row class="class-item2" hover-class="touchui-hover" space-bottom="20" url="/pages/home/graphicalList2" height="80">
-        <ui-col vertical-align="middle" align="center" width="120" class="left-item application_08">
-          <ui-icon type="home-jindu" size="50" color="#fff"></ui-icon>
-        </ui-col>
-        <ui-col vertical-align="middle" align="left" space-left="10">
-          <ui-view class="title">进度类图形</ui-view>
-          <ui-text class="small-title">timeline / circular / multi-circular / mini-circular / progress</ui-text>
-        </ui-col>
-      </ui-row>
-      <ui-row class="class-item2" hover-class="touchui-hover" space-bottom="20" url="/pages/home/graphicalList3" height="80">
-        <ui-col vertical-align="middle" align="center" width="120" class="left-item application_01">
-          <ui-icon type="home-graphical" size="50" color="#fff"></ui-icon>
-        </ui-col>
-        <ui-col vertical-align="middle" align="left" space-left="10">
-          <ui-view class="title">图表</ui-view>
-          <ui-text class="small-title">包含十几种常用图表组件</ui-text>
-        </ui-col>
-      </ui-row>
-    </ui-view>
-
-    <ui-view class="class-wrap">
-      <ui-row height="60" class="title">
-        <ui-col vertical-align="middle" align="left" width="20">
-          <ui-icon type="location" size="18" color="#39f"></ui-icon>
-        </ui-col>
-        <ui-col vertical-align="middle" align="left" space-left="10">
-          <ui-view>地图</ui-view>
-        </ui-col>
-      </ui-row>
-      
-      <ui-row class="class-item2" hover-class="touchui-hover" space-bottom="20" url="/pages/home/mapList" height="80">
-        <ui-col vertical-align="middle" align="center" width="120" class="left-item application_02">
-          <ui-icon type="home-map" size="50" color="#fff"></ui-icon>
-        </ui-col>
-        <ui-col vertical-align="middle" align="left" space-left="10">
-          <ui-view class="title">地图组件</ui-view>
-          <ui-text class="small-title">演示地图操作、标记点、气泡、绘制等相关特性</ui-text>
-        </ui-col>
-      </ui-row>
-      <ui-row class="class-item2" hover-class="touchui-hover" space-bottom="20" url="/pages/home/mapList2" height="80">
-        <ui-col vertical-align="middle" align="center" width="120" class="left-item application_03">
-          <ui-icon type="home-sdk" size="50" color="#fff"></ui-icon>
-        </ui-col>
-        <ui-col vertical-align="middle" align="left" space-left="10">
-          <ui-view class="title">地图服务SDK</ui-view>
-          <ui-text class="small-title">包含了讯地图服务和高德地图服务的SDK示例</ui-text>
-        </ui-col>
-      </ui-row>
-      <ui-row class="class-item2" hover-class="touchui-hover" space-bottom="20" url="/pages/home/mapList3" height="80">
-        <ui-col vertical-align="middle" align="center" width="120" class="left-item application_04">
-          <ui-icon type="home-webservice" size="50" color="#fff"></ui-icon>
-        </ui-col>
-        <ui-col vertical-align="middle" align="left" space-left="10">
-          <ui-view class="title">非框架封装的地图与服务</ui-view>
-          <ui-text class="small-title">包含WebService示例和引入百度地图和高德地图示例</ui-text>
-        </ui-col>
-      </ui-row>
-    </ui-view>
-
-    <ui-fixed-view top="0" left="0" class="splash_wrap" ui:if="{{ isSplashSwiper }}" >
-      <ui-swiper fullscreen class="splash_swiper" bindchange="changeSwiper" indicator-dots>
-        <ui-swiper-item>
-          <ui-view class="splash_swiper_content splash_swiper01"></ui-view>
-        </ui-swiper-item>
-        <ui-swiper-item>
-          <ui-view class="splash_swiper_content splash_swiper02"></ui-view>
-        </ui-swiper-item>
-        <ui-swiper-item>
-          <ui-view class="splash_swiper_content splash_swiper03"></ui-view>
-          <ui-view class="splash_into" bindtap="splashInto">点击进入</ui-view>
-        </ui-swiper-item>
-        
-      </ui-swiper>
-
-    </ui-fixed-view>
   </ui-page>
 </template>
 <script>
