@@ -235,7 +235,7 @@
               <ui-col style="margin-top: -8px;">
                 <ui-row>
                   <ui-col align="left" space-left="10" width="40">
-                    <ui-icon color="#CC3399" style="margin-top: 3px;" type="statistics" size="20"></ui-icon>
+                    <ui-icon color="green" style="margin-top: 3px;" type="statistics" size="20"></ui-icon>
                   </ui-col>
                   <ui-col vertical-align="bottom" align="left">
                     <ui-text block>收款流水</ui-text>
