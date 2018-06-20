@@ -62,7 +62,7 @@
           <ui-icon type="home-tabBar" size="50" color="#fff"></ui-icon>
         </ui-col>
         <ui-col vertical-align="middle" align="left" space-left="10">
-          <ui-view class="title">销售库存单</ui-view>
+          <ui-view class="title">销售分析</ui-view>
           <ui-text class="small-title">掌握公司销售情况</ui-text>
         </ui-col>
       </ui-row>
